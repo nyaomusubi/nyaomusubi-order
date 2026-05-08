@@ -131,77 +131,77 @@
 <h2 id="onigiri">おむすび</h2>
 
 <div class="item">
-  出汁塩むすび（通常）
+  <div class="name">出汁塩むすび（通常）</div>
   <div class="price">230円</div>
   <input type="number" min="0" value="0">
 </div>
 
 <div class="item">
-  出汁塩むすび（小さめ）
+  <div class="name">出汁塩むすび（小さめ）</div>
   <div class="price">165円</div>
   <input type="number" min="0" value="0">
 </div>
 
 <div class="item">
-  鮭むすび（通常）
+  <div class="name">鮭むすび（通常）</div>
   <div class="price">280円</div>
   <input type="number" min="0" value="0">
 </div>
 
 <div class="item">
-  鮭むすび（小さめ）
+  <div class="name">鮭むすび（小さめ）</div>
   <div class="price">185円</div>
   <input type="number" min="0" value="0">
 </div>
 <div class="item">
-  自家製こんぶ佃煮おむすび（通常）
+  <div class="name">自家製こんぶ佃煮おむすび（通常）</div>
   <div class="price">280円</div>
   <input type="number" min="0" value="0">
 </div>
 
 <div class="item">
-  自家製こんぶ佃煮おむすび（小さめ）
+  <div class="name">自家製こんぶ佃煮おむすび（小さめ）</div>
   <div class="price">185円</div>
   <input type="number" min="0" value="0">
 </div>
 
 <div class="item">
-  和風ツナマヨむすび（通常）
+  <div class="name">和風ツナマヨむすび（通常）</div>
   <div class="price">280円</div>
   <input type="number" min="0" value="0">
 </div>
 
 <div class="item">
-  和風ツナマヨむすび（小さめ）
+  <div class="name">和風ツナマヨむすび（小さめ）</div>
   <div class="price">185円</div>
   <input type="number" min="0" value="0">
 </div>
 
 <div class="item">
-  明太子むすび（通常）
+  <div class="name">明太子むすび（通常）</div>
   <div class="price">340円</div>
   <input type="number" min="0" value="0">
 </div>
 
 <div class="item">
-  明太子むすび（小さめ）
+  <div class="name">明太子むすび（小さめ）</div>
   <div class="price">200円</div>
   <input type="number" min="0" value="0">
 </div>
 
 <div class="item">
-  明太高菜むすび（通常）
+  <div class="name">明太高菜むすび（通常）</div>
   <div class="price">340円</div>
   <input type="number" min="0" value="0">
 </div>
 
 <div class="item">
-  明太高菜むすび（小さめ）
+  <div class="name">明太高菜むすび（小さめ）</div>
   <div class="price">200円</div>
   <input type="number" min="0" value="0">
 </div>
 <div class="item">
-  爆弾むすび
+  <div class="name">爆弾むすび</div>
   <div class="price">600円</div>
   <input type="number" min="0" value="0">
 </div>
@@ -603,7 +603,7 @@ function goConfirm() {
 blocks.forEach(block => {
 
   const input = block.querySelector("input[type='number']");
-  const name = block.childNodes[0].textContent.trim();
+ const name = block.querySelector(".name")?.innerText || "";
   const priceText = block.querySelector(".price")?.innerText;
   const price = priceText ? Number(priceText.replace(/[^0-9]/g,"")) : 0;
 
