@@ -614,8 +614,7 @@ function goConfirm() {
   if(count <= 0) return;
 
   // 👉セット系は「構造」で除外（文字じゃなく）
-  if(block.querySelector(".set-onigiri") || block.querySelector(".family-normal")) return;
-
+  if(block.closest("#set") || block.closest("#familySet")) return;
   items.push({
     name,
     count,
