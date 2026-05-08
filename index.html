@@ -610,11 +610,18 @@ blocks.forEach(block => {
 
   if(count <= 0) return;
 
-  let name = block.querySelector(".name")?.innerText;
+ let name = block.querySelector(".name")?.innerText;
 
-  if(!name){
-    name = block.childNodes[0]?.textContent.trim();
-  }
+if(!name){
+  name = block.childNodes[0]?.textContent.trim();
+}
+
+// はちみつジンジャーの種類取得
+const select = block.querySelector("select");
+
+if(select){
+  name += `（${select.value}）`;
+}
 
   const priceText =
     block.querySelector(".price")?.innerText;
