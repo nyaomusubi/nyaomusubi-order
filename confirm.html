@@ -17,6 +17,7 @@ h1{
 }
 
 .card{
+  font-size:16px;
   background:white;
   padding:15px;
   margin-bottom:10px;
@@ -27,6 +28,7 @@ h1{
 .price{
   font-weight:bold;
   font-size:18px;
+  margin-top:5px;
   color:#7ca68d;
 }
 
@@ -54,15 +56,35 @@ const params = new URLSearchParams(window.location.search);
 
 const data = JSON.parse(decodeURIComponent(params.get("data") || "[]"));
 const time = params.get("time");
-const total = params.get("total");
+const safeTime = time || "未選択";
+document.getElementById("time").innerText = safeTime;
 
-document.getElementById("order").innerHTML =
-  data.map(item => `<p>${item}</p>`).join("");
+// 表示
+const orderHTML = data.map(item => {
+  return `
+    <div class="card">
+      <div>${item.name}</div>
+      <div class="small">数量：${item.count}</div>
+      <div class="price">¥${item.price * item.count}</div>
+    </div>
+  `;
+}).join("");
 
+document.getElementById("order").innerHTML = orderHTML;
+
+// 受け取り時間
 document.getElementById("time").innerText = time;
-document.getElementById("total").innerText = total + "個";
+
+// 合計金額計算
+let totalPrice = 0;
+
+data.forEach(item => {
+  totalPrice += item.price * item.count;
+});
+
+document.getElementById("total").innerText =
+  "¥" + totalPrice.toLocaleString();
 
 </script>
-
 </body>
 </html>
