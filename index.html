@@ -57,17 +57,45 @@
       background:#ff8c42;
       color:white;
     }
+.menu-nav{
+  position:sticky;
+  top:0;
+  background:white;
+  padding:10px;
+  display:flex;
+  gap:10px;
+  overflow-x:auto;
+  z-index:100;
+}
 
+.menu-nav a{
+  text-decoration:none;
+  background:#ff8c42;
+  color:white;
+  padding:10px 15px;
+  border-radius:20px;
+  white-space:nowrap;
+  font-size:14px;
+}
   </style>
 </head>
 
 <body>
 
 <h1>にゃおむすび モバイルオーダー</h1>
+<div class="menu-nav">
 
+  <a href="#onigiri">おむすび</a>
+  <a href="#set">セット</a>
+  <a href="#side">サイド</a>
+  <a href="#bento">弁当</a>
+  <a href="#drink">ドリンク</a>
+  <a href="#dessert">デザート</a>
+
+</div>
 <p>※価格は税抜表示です（一部税込商品あり）</p>
 
-<h2>おむすび</h2>
+<h2 id="onigiri">おむすび</h2>
 
 <div class="item">
   出汁塩むすび（通常）
@@ -145,7 +173,7 @@
   <input type="number" min="0" value="0">
 </div>
 
-<h2>セット</h2>
+<h2 id="set">セット</h2>
 
 <div class="item">
 
@@ -239,7 +267,7 @@
   <p id="familyError" style="color:red;"></p>
 
 </div>
-<h2>サイドメニュー</h2>
+<h2 id="side">サイドメニュー</h2>
 
 <div class="item">
   鶏のから揚げ（3個）
@@ -271,7 +299,7 @@
   <input type="number" min="0" value="0">
 </div> 
   
-<h2>お弁当</h2>
+<h2 id="bento">お弁当</h2>
 
 <div class="item">
   唐揚げ弁当
@@ -303,7 +331,7 @@
   <input type="number" min="0" value="0">
 </div>
 
-<h2>ドリンク</h2>
+<h2 id="drink">ドリンク</h2>
 
 <div class="item">
   アイスコーヒー
@@ -380,7 +408,7 @@
   
 
 
-<h2>デザート</h2>
+<h2 id="dessert">デザート</h2>
 
 <div class="item">
   オレオのレアチーズケーキ
