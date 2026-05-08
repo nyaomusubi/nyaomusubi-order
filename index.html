@@ -591,42 +591,6 @@ familySmall.forEach(input => {
   );
 });
 
-function goConfirm() {
-
-  // 受け取り時間
-  const time = document.getElementById("pickupTime").value;
-
-  // 全ての数値入力を取得
-  const inputs = document.querySelectorAll("input[type='number']");
-
-  let orderList = [];
-  let totalCount = 0;
-
-  inputs.forEach(input => {
-
-    const value = Number(input.value);
-
-    if (value > 0) {
-
-      // 名前はその上のitemから取得
-      const name =
-        input.closest(".item")
-        ?.childNodes[0]
-        ?.textContent
-        ?.trim();
-
-      orderList.push(`${name} × ${value}`);
-      totalCount += value;
-    }
-
-  });
-
-  // データをURLに詰める
-  const data = encodeURIComponent(JSON.stringify(orderList));
-
-  location.href =
-    `confirm.html?data=${data}&time=${time}&total=${totalCount}`;
-}
 
 function goConfirm() {
 
