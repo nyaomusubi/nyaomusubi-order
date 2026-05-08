@@ -3,22 +3,61 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>にゃおむすび注文</title>
+  <title>にゃおむすび モバイルオーダー</title>
 
   <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
 
   <style>
+
     body{
-      font-family:sans-serif;
-      padding:20px;
+      font-family: sans-serif;
+      padding: 20px;
+      background: #fffaf5;
+      color: #333;
+    }
+
+    h1{
+      text-align:center;
+      margin-bottom:30px;
+    }
+
+    h2{
+      margin-top:40px;
+      border-bottom:2px solid #ddd;
+      padding-bottom:5px;
+    }
+
+    .item{
+      background:white;
+      padding:15px;
+      border-radius:10px;
+      margin-top:10px;
+      box-shadow:0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .price{
+      color:#888;
+      font-size:14px;
+    }
+
+    input[type="number"]{
+      width:70px;
+      padding:8px;
+      font-size:16px;
+      margin-top:10px;
     }
 
     button{
       width:100%;
       padding:15px;
-      margin-top:10px;
       font-size:18px;
+      margin-top:30px;
+      border:none;
+      border-radius:10px;
+      background:#ff8c42;
+      color:white;
     }
+
   </style>
 </head>
 
@@ -26,23 +65,265 @@
 
 <h1>にゃおむすび モバイルオーダー</h1>
 
-<p>受取時間を選んでください</p>
+<p>※価格は税抜表示です（一部税込商品あり）</p>
 
-<button>11:30</button>
-<button>12:00</button>
-<button>12:30</button>
+<h2>おむすび</h2>
+
+<div class="item">
+  出汁塩むすび（通常）
+  <div class="price">230円</div>
+  <input type="number" min="0" value="0">
+</div>
+
+<div class="item">
+  出汁塩むすび（小さめ）
+  <div class="price">165円</div>
+  <input type="number" min="0" value="0">
+</div>
+
+<div class="item">
+  鮭むすび（通常）
+  <div class="price">280円</div>
+  <input type="number" min="0" value="0">
+</div>
+
+<div class="item">
+  鮭むすび（小さめ）
+  <div class="price">185円</div>
+  <input type="number" min="0" value="0">
+</div>
+<div class="item">
+  自家製こんぶ佃煮おむすび（通常）
+  <div class="price">280円</div>
+  <input type="number" min="0" value="0">
+</div>
+
+<div class="item">
+  自家製こんぶ佃煮おむすび（小さめ）
+  <div class="price">185円</div>
+  <input type="number" min="0" value="0">
+</div>
+
+<div class="item">
+  和風ツナマヨむすび（通常）
+  <div class="price">280円</div>
+  <input type="number" min="0" value="0">
+</div>
+
+<div class="item">
+  和風ツナマヨむすび（小さめ）
+  <div class="price">185円</div>
+  <input type="number" min="0" value="0">
+</div>
+
+<div class="item">
+  明太子むすび（通常）
+  <div class="price">340円</div>
+  <input type="number" min="0" value="0">
+</div>
+
+<div class="item">
+  明太子むすび（小さめ）
+  <div class="price">200円</div>
+  <input type="number" min="0" value="0">
+</div>
+
+<div class="item">
+  明太高菜むすび（通常）
+  <div class="price">340円</div>
+  <input type="number" min="0" value="0">
+</div>
+
+<div class="item">
+  明太高菜むすび（小さめ）
+  <div class="price">200円</div>
+  <input type="number" min="0" value="0">
+</div>
+<div class="item">
+  爆弾むすび
+  <div class="price">600円</div>
+  <input type="number" min="0" value="0">
+</div>
+
+<h2>セット</h2>
+
+<div class="item">
+  選べるおむすびセット
+  <div class="price">1000円</div>
+  <input type="number" min="0" value="0">
+</div>
+
+<div class="item">
+  親子むすびセット
+  <div class="price">1400円</div>
+  <input type="number" min="0" value="0">
+</div>
+
+<h2>サイドメニュー</h2>
+
+<div class="item">
+  鶏のから揚げ（3個）
+  <div class="price">350円</div>
+  <input type="number" min="0" value="0">
+</div>
+
+<div class="item">
+  本日の汁物
+  <div class="price">320円</div>
+  <input type="number" min="0" value="0">
+</div>
+
+<div class="item">
+  本日の惣菜（3品）
+  <div class="price">600円</div>
+  <input type="number" min="0" value="0">
+</div>
+
+<div class="item">
+  ちょい足し鶏から揚げ（1個）
+  <div class="price">120円</div>
+  <input type="number" min="0" value="0">
+</div>
+
+<div class="item">
+  ちょい足し佃煮ひと口
+  <div class="price">120円</div>
+  <input type="number" min="0" value="0">
+</div> 
+  
+<h2>お弁当</h2>
+
+<div class="item">
+  唐揚げ弁当
+  <div class="price">900円</div>
+  <input type="number" min="0" value="0">
+</div>
+  
+<div class="item">
+  本日の惣菜弁当
+  <div class="price">900円</div>
+  <input type="number" min="0" value="0">
+</div>
+
+<div class="item">
+  洋風弁当
+  <div class="price">900円</div>
+  <input type="number" min="0" value="0">
+</div>
+
+<div class="item">
+  焼売弁当
+  <div class="price">700円</div>
+  <input type="number" min="0" value="0">
+</div>
+  
+<div class="item">
+  日替わり丼
+  <div class="price">700円</div>
+  <input type="number" min="0" value="0">
+</div>
+
+<h2>ドリンク</h2>
+
+<div class="item">
+  アイスコーヒー
+  <div class="price">200円</div>
+  <input type="number" min="0" value="0">
+</div>
+  
+<div class="item">
+  ホットコーヒー
+  <div class="price">200円</div>
+  <input type="number" min="0" value="0">
+</div>
+
+<div class="item">
+  レモネード
+  <div class="price">200円</div>
+  <input type="number" min="0" value="0">
+</div>
+
+<div class="item">
+  カルピス
+  <div class="price">200円</div>
+  <input type="number" min="0" value="0">
+</div>
+
+<div class="item">
+  いちごのフレッシュソーダ
+  <div class="price">300円</div>
+  <input type="number" min="0" value="0">
+</div>
+
+<div class="item">
+  チャイティー（ホットのみ）
+  <div class="price">200円</div>
+  <input type="number" min="0" value="0">
+</div>
+
+<div class="item">
+  はちみつジンジャー
+  <div class="price">200円</div>
+  <input type="number" min="0" value="0">
+</div>
+
+<div class="item">
+  ノンアルコール梅酒 缶
+  <div class="price">200円</div>
+  <input type="number" min="0" value="0">
+</div>
+
+<div class="item">
+  ノンアルコールビール 缶
+  <div class="price">200円</div>
+  <input type="number" min="0" value="0">
+</div>
+
+<div class="item">
+  胡麻麦茶350ml（税込）
+  <div class="price">250円</div>
+  <input type="number" min="0" value="0">
+</div>
+  
+
+
+<h2>デザート</h2>
+
+<div class="item">
+  オレオのレアチーズケーキ
+  <div class="price">350円</div>
+  <input type="number" min="0" value="0">
+</div>
+
+<div class="item">
+  プチ大福（チョコ&餡子）4つ
+  <div class="price">250円</div>
+  <input type="number" min="0" value="0">
+</div>
+
+<div class="item">
+  プチ大福（チョコ&ミルク）4つ
+  <div class="price">250円</div>
+  <input type="number" min="0" value="0">
+</div>  
+  
+<div class="item">
+  米粉のスノーボール
+  <div class="price">200円</div>
+  <input type="number" min="0" value="0">
+</div>
+
+<button>注文内容を確認する</button>
 
 <script>
 
 async function main() {
 
   await liff.init({
-    liffId: "2010008395-7xwJ1RIM"
+    liffId: "2010008395-CCgQEFUT"
   });
 
-  const profile = await liff.getProfile();
-
-  console.log(profile.displayName);
+  console.log("LIFF初期化成功");
 
 }
 
