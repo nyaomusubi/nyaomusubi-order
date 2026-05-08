@@ -467,7 +467,7 @@
   <input type="number" min="0" value="0">
 </div>
 
-<button onclick="location.href='confirm.html'">
+<button onclick="goConfirm()">
   注文内容を確認する
 </button>
 <script>
@@ -590,6 +590,44 @@ familySmall.forEach(input => {
     checkFamilySet
   );
 });
+
+function goConfirm() {
+
+  // 受け取り時間
+  const time = document.getElementById("pickupTime").value;
+
+  // 全ての数値入力を取得
+  const inputs = document.querySelectorAll("input[type='number']");
+
+  let orderList = [];
+  let totalCount = 0;
+
+  inputs.forEach(input => {
+
+    const value = Number(input.value);
+
+    if (value > 0) {
+
+      // 名前はその上のitemから取得
+      const name =
+        input.closest(".item")
+        ?.childNodes[0]
+        ?.textContent
+        ?.trim();
+
+      orderList.push(`${name} × ${value}`);
+      totalCount += value;
+    }
+
+  });
+
+  // データをURLに詰める
+  const data = encodeURIComponent(JSON.stringify(orderList));
+
+  location.href =
+    `confirm.html?data=${data}&time=${time}&total=${totalCount}`;
+}
+  
 </script>
 
 </body>
