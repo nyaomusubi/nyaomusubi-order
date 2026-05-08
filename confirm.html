@@ -55,6 +55,7 @@ h1{
 const params = new URLSearchParams(window.location.search);
 
 const data = JSON.parse(decodeURIComponent(params.get("data") || "[]"));
+console.log(data);
 const time = params.get("time");
 
 // 注文表示
