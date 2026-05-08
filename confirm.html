@@ -56,34 +56,44 @@ const params = new URLSearchParams(window.location.search);
 
 const data = JSON.parse(decodeURIComponent(params.get("data") || "[]"));
 const time = params.get("time");
-const safeTime = time || "未選択";
-document.getElementById("time").innerText = safeTime;
 
-// 表示
-const orderHTML = data.map(item => {
-  return `
-    <div class="card">
-      <div>${item.name}</div>
-      <div class="small">数量：${item.count}</div>
-      <div class="price">¥${item.price * item.count}</div>
-    </div>
-  `;
-}).join("");
+// 注文表示
+document.getElementById("order").innerHTML =
+  data.map(item => {
 
-document.getElementById("order").innerHTML = orderHTML;
+    let detailHTML = "";
+
+    if(item.detail){
+      detailHTML = item.detail.map(d =>
+        `<div class="small">・${d.name} × ${d.count}</div>`
+      ).join("");
+    }
+
+    return `
+      <div class="card">
+        <div>${item.name}</div>
+        <div class="small">数量：${item.count}</div>
+        ${detailHTML}
+        <div class="price">¥${item.price * item.count}</div>
+      </div>
+    `;
+  }).join("");
 
 // 受け取り時間
-document.getElementById("time").innerText = time;
+document.getElementById("time").innerText = time || "未選択";
 
-// 合計金額計算
+// 合計金額（税抜→税込）
 let totalPrice = 0;
 
 data.forEach(item => {
   totalPrice += item.price * item.count;
 });
 
+const taxRate = 0.08;
+const totalWithTax = Math.round(totalPrice * (1 + taxRate));
+
 document.getElementById("total").innerText =
-  "¥" + totalPrice.toLocaleString();
+  "¥" + totalWithTax.toLocaleString();
 
 </script>
 </body>
