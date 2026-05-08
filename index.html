@@ -603,7 +603,7 @@ function goConfirm() {
   blocks.forEach(block => {
 
   const input = block.querySelector("input[type='number']");
-  const name = block.firstChild?.textContent?.trim();
+ const name = block.childNodes[0]?.textContent?.trim();
   const priceText = block.querySelector(".price")?.innerText;
   const price = priceText ? Number(priceText.replace(/[^0-9]/g,"")) : 0;
 
