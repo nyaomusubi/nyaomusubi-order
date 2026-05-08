@@ -600,10 +600,10 @@ function goConfirm() {
 
  const blocks = document.querySelectorAll("#onigiri .item, #side .item, #bento .item, #drink .item, #dessert .item");
 
-  blocks.forEach(block => {
+blocks.forEach(block => {
 
   const input = block.querySelector("input[type='number']");
- const name = block.childNodes[0]?.textContent?.trim();
+  const name = block.childNodes[0].textContent.trim();
   const priceText = block.querySelector(".price")?.innerText;
   const price = priceText ? Number(priceText.replace(/[^0-9]/g,"")) : 0;
 
@@ -613,8 +613,8 @@ function goConfirm() {
 
   if(count <= 0) return;
 
-  // 👉セット系は「構造」で除外（文字じゃなく）
   if(block.closest("#set") || block.closest("#familySet")) return;
+
   items.push({
     name,
     count,
