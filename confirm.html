@@ -1,32 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>注文内容確認</title>
+<meta charset="UTF-8">
+<title>注文確認</title>
 </head>
 <body>
 
-  <h1>ご注文内容の確認</h1>
+<h1>注文内容の確認</h1>
 
-  <hr>
+<div id="order"></div>
 
-  <h2>注文内容</h2>
-  <p>おにぎりA × 2</p>
-  <p>おにぎりB × 1</p>
+<h3>受け取り時間</h3>
+<p id="time"></p>
 
-  <hr>
+<h3>合計</h3>
+<p id="total"></p>
 
-  <h2>受け取り時間</h2>
-  <p>〇月〇日 〇時〇分</p>
+<script>
 
-  <hr>
+const params = new URLSearchParams(window.location.search);
 
-  <h2>合計金額</h2>
-  <p style="font-size:20px; font-weight:bold;">¥〇〇〇</p>
+const data = JSON.parse(decodeURIComponent(params.get("data") || "[]"));
+const time = params.get("time");
+const total = params.get("total");
 
-  <button style="width:100%; padding:15px; font-size:16px;">
-    注文を確定する
-  </button>
+document.getElementById("order").innerHTML =
+  data.map(item => `<p>${item}</p>`).join("");
+
+document.getElementById("time").innerText = time;
+document.getElementById("total").innerText = total + "個";
+
+</script>
 
 </body>
 </html>
