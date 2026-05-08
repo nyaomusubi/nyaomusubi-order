@@ -627,20 +627,98 @@ function goConfirm() {
 
   const setCount = Number(document.getElementById("setCount")?.value || 0);
   if(setCount > 0){
-    items.push({
-      name:"選べるおむすびセット",
-      count:setCount,
-      price:1000
+   const setItems = [];
+
+const setNames = [
+  "出汁塩むすび（のどぐろ）",
+  "鮭むすび",
+  "和風ツナマヨむすび",
+  "自家製こんぶ佃煮むすび",
+  "明太子むすび",
+  "明太高菜むすび"
+];
+
+const setInputs = document.querySelectorAll(".set-onigiri");
+
+setInputs.forEach((input, i) => {
+  const count = Number(input.value);
+  if(count > 0){
+    setItems.push({
+      name: setNames[i],
+      count: count
     });
+  }
+});
+
+const setCount = Number(document.getElementById("setCount").value || 0);
+
+if(setCount > 0){
+  items.push({
+    name: "選べるおむすびセット",
+    count: setCount,
+    price: 1000,
+    detail: setItems
+  });
+}
   }
 
   const familyCount = Number(document.getElementById("familySetCount")?.value || 0);
   if(familyCount > 0){
-    items.push({
-      name:"親子むすびセット",
-      count:familyCount,
-      price:1400
+   const familyItems = [];
+
+const familyNamesNormal = [
+  "出汁塩むすび（のどぐろ）",
+  "鮭むすび",
+  "和風ツナマヨむすび",
+  "自家製こんぶ佃煮むすび",
+  "明太子むすび",
+  "明太高菜むすび"
+];
+
+const familyNamesSmall = [
+  "出汁塩むすび（のどぐろ）",
+  "鮭むすび",
+  "和風ツナマヨむすび",
+  "自家製こんぶ佃煮むすび",
+  "明太子むすび",
+  "明太高菜むすび"
+];
+
+const normalInputs = document.querySelectorAll(".family-normal");
+const smallInputs = document.querySelectorAll(".family-small");
+
+// 通常サイズ
+normalInputs.forEach((input, i) => {
+  const count = Number(input.value);
+  if(count > 0){
+    familyItems.push({
+      name: familyNamesNormal[i] + "（通常）",
+      count: count
     });
+  }
+});
+
+// 小さめ
+smallInputs.forEach((input, i) => {
+  const count = Number(input.value);
+  if(count > 0){
+    familyItems.push({
+      name: familyNamesSmall[i] + "（小さめ）",
+      count: count
+    });
+  }
+});
+
+const familyCount = Number(document.getElementById("familySetCount").value || 0);
+
+if(familyCount > 0){
+  items.push({
+    name: "親子むすびセット",
+    count: familyCount,
+    price: 1400,
+    detail: familyItems
+  });
+}
   }
 
   const data = encodeURIComponent(JSON.stringify(items));
