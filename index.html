@@ -598,14 +598,11 @@ function goConfirm() {
 
   const items = [];
 
- const blocks = document.querySelectorAll("#onigiri .item, #side .item, #bento .item, #drink .item, #dessert .item");
+const blocks = document.querySelectorAll(".item");
 
 blocks.forEach(block => {
 
   const input = block.querySelector("input[type='number']");
- const name = block.querySelector(".name")?.innerText || "";
-  const priceText = block.querySelector(".price")?.innerText;
-  const price = priceText ? Number(priceText.replace(/[^0-9]/g,"")) : 0;
 
   if(!input) return;
 
@@ -613,13 +610,26 @@ blocks.forEach(block => {
 
   if(count <= 0) return;
 
-  if(block.closest("#set") || block.closest("#familySet")) return;
+  let name = block.querySelector(".name")?.innerText;
+
+  if(!name){
+    name = block.childNodes[0]?.textContent.trim();
+  }
+
+  const priceText =
+    block.querySelector(".price")?.innerText;
+
+  const price =
+    priceText
+      ? Number(priceText.replace(/[^0-9]/g,""))
+      : 0;
 
   items.push({
     name,
     count,
     price
   });
+
 });
     
   const setCount = Number(document.getElementById("setCount")?.value || 0);
