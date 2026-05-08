@@ -602,30 +602,26 @@ function goConfirm() {
 
   blocks.forEach(block => {
 
-    const name = block.childNodes[0]?.textContent?.trim();
-    if(name.includes("セット")) return;
-    const priceText = block.querySelector(".price")?.innerText;
+  const input = block.querySelector("input[type='number']");
+  const name = block.firstChild?.textContent?.trim();
+  const priceText = block.querySelector(".price")?.innerText;
+  const price = priceText ? Number(priceText.replace(/[^0-9]/g,"")) : 0;
 
-    const price = priceText ? Number(priceText.replace(/[^0-9]/g,"")) : 0;
+  if(!input) return;
 
-    const input = block.querySelector("input[type='number']");
+  const count = Number(input.value);
 
-    if(input){
+  if(count <= 0) return;
 
-      const count = Number(input.value);
+  // 👉セット系は「構造」で除外（文字じゃなく）
+  if(block.querySelector(".set-onigiri") || block.querySelector(".family-normal")) return;
 
-      if(count > 0){
-        items.push({
-          name,
-          count,
-          price
-        });
-      }
-
-    }
-
+  items.push({
+    name,
+    count,
+    price
   });
-
+    
   const setCount = Number(document.getElementById("setCount")?.value || 0);
   if(setCount > 0){
    const setItems = [];
