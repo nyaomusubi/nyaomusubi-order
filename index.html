@@ -12,6 +12,7 @@
     body{
       font-family: sans-serif;
       padding: 20px;
+      padding-bottom:120px;
       background: #fff7f8;
       color: #333;
     }
@@ -49,16 +50,21 @@
       margin-top:10px;
     }
 
-    button{
-      width:100%;
-      padding:15px;
-      font-size:18px;
-      margin-top:30px;
-      border:none;
-      border-radius:10px;
-      background:#9fc9b0;
-      color:white;
-    }
+   button{
+  width:calc(100% - 40px);
+  padding:15px;
+  font-size:18px;
+  border:none;
+  border-radius:15px;
+  background:#9fc9b0;
+  color:white;
+
+  position:fixed;
+  bottom:20px;
+  left:20px;
+
+  z-index:999;
+}
 .menu-nav{
   position:sticky;
   top:0;
