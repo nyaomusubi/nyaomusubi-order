@@ -151,25 +151,31 @@
 
   <h3>選べるおむすびセット　1000円</h3>
 
-  <p>通常サイズのおむすびを2つお選びください</p>
+  <p>セット数を入力してください</p>
+
+  <input type="number" id="setCount" min="0" value="0">
+
+  <p id="setGuide">通常サイズのおむすびを0個選んでください</p>
 
   <label>出汁塩むすび（のどぐろ）</label><br>
-  <input type="number" min="0" max="2" value="0"><br><br>
+  <input type="number" class="set-onigiri" min="0" value="0"><br><br>
 
   <label>鮭むすび</label><br>
-  <input type="number" min="0" max="2" value="0"><br><br>
+  <input type="number" class="set-onigiri" min="0" value="0"><br><br>
 
   <label>和風ツナマヨむすび</label><br>
-  <input type="number" min="0" max="2" value="0"><br><br>
+  <input type="number" class="set-onigiri" min="0" value="0"><br><br>
 
   <label>自家製こんぶ佃煮むすび</label><br>
-  <input type="number" min="0" max="2" value="0"><br><br>
+  <input type="number" class="set-onigiri" min="0" value="0"><br><br>
 
   <label>明太子むすび</label><br>
-  <input type="number" min="0" max="2" value="0"><br><br>
+  <input type="number" class="set-onigiri" min="0" value="0"><br><br>
 
   <label>明太高菜むすび</label><br>
-  <input type="number" min="0" max="2" value="0"><br>
+  <input type="number" class="set-onigiri" min="0" value="0"><br><br>
+
+  <p id="setError" style="color:red;"></p>
 
 </div>
 
@@ -178,47 +184,59 @@
 
   <h3>親子むすびセット　1400円</h3>
 
-  <p>通常サイズのおむすびを2つお選びください</p>
+  <p>セット数を入力してください</p>
 
-  <label>出汁塩むすび（のどぐろ）</label><br>
-  <input type="number" min="0" max="2" value="0"><br><br>
-
-  <label>鮭むすび</label><br>
-  <input type="number" min="0" max="2" value="0"><br><br>
-
-  <label>和風ツナマヨむすび</label><br>
-  <input type="number" min="0" max="2" value="0"><br><br>
-
-  <label>自家製こんぶ佃煮むすび</label><br>
-  <input type="number" min="0" max="2" value="0"><br><br>
-
-  <label>明太子むすび</label><br>
-  <input type="number" min="0" max="2" value="0"><br><br>
-
-  <label>明太高菜むすび</label><br>
-  <input type="number" min="0" max="2" value="0"><br><br>
+  <input type="number" id="familySetCount" min="0" value="0">
 
   <hr>
 
-  <p>小さめサイズのおむすびを2つお選びください</p>
+  <p id="familyNormalGuide">
+    通常サイズのおむすびを0個選んでください
+  </p>
 
   <label>出汁塩むすび（のどぐろ）</label><br>
-  <input type="number" min="0" max="2" value="0"><br><br>
+  <input type="number" class="family-normal" min="0" value="0"><br><br>
 
   <label>鮭むすび</label><br>
-  <input type="number" min="0" max="2" value="0"><br><br>
+  <input type="number" class="family-normal" min="0" value="0"><br><br>
 
   <label>和風ツナマヨむすび</label><br>
-  <input type="number" min="0" max="2" value="0"><br><br>
+  <input type="number" class="family-normal" min="0" value="0"><br><br>
 
   <label>自家製こんぶ佃煮むすび</label><br>
-  <input type="number" min="0" max="2" value="0"><br><br>
+  <input type="number" class="family-normal" min="0" value="0"><br><br>
 
   <label>明太子むすび</label><br>
-  <input type="number" min="0" max="2" value="0"><br><br>
+  <input type="number" class="family-normal" min="0" value="0"><br><br>
 
   <label>明太高菜むすび</label><br>
-  <input type="number" min="0" max="2" value="0"><br>
+  <input type="number" class="family-normal" min="0" value="0"><br><br>
+
+  <hr>
+
+  <p id="familySmallGuide">
+    小さめサイズのおむすびを0個選んでください
+  </p>
+
+  <label>出汁塩むすび（のどぐろ）</label><br>
+  <input type="number" class="family-small" min="0" value="0"><br><br>
+
+  <label>鮭むすび</label><br>
+  <input type="number" class="family-small" min="0" value="0"><br><br>
+
+  <label>和風ツナマヨむすび</label><br>
+  <input type="number" class="family-small" min="0" value="0"><br><br>
+
+  <label>自家製こんぶ佃煮むすび</label><br>
+  <input type="number" class="family-small" min="0" value="0"><br><br>
+
+  <label>明太子むすび</label><br>
+  <input type="number" class="family-small" min="0" value="0"><br><br>
+
+  <label>明太高菜むすび</label><br>
+  <input type="number" class="family-small" min="0" value="0"><br><br>
+
+  <p id="familyError" style="color:red;"></p>
 
 </div>
 <h2>サイドメニュー</h2>
@@ -390,7 +408,113 @@ async function main() {
 }
 
 main();
+const setCount = document.getElementById("setCount");
+const setGuide = document.getElementById("setGuide");
+const setError = document.getElementById("setError");
+const setOnigiri = document.querySelectorAll(".set-onigiri");
 
+function checkSet() {
+
+  const required = Number(setCount.value) * 2;
+
+  setGuide.innerText =
+    `通常サイズのおむすびを${required}個選んでください`;
+
+  let total = 0;
+
+  setOnigiri.forEach(input => {
+    total += Number(input.value);
+  });
+
+  if (total === required) {
+    setError.innerText = "";
+  } else {
+    setError.innerText =
+      `現在 ${total}個です。${required}個選んでください。`;
+  }
+
+}
+
+setCount.addEventListener("input", checkSet);
+
+setOnigiri.forEach(input => {
+  input.addEventListener("input", checkSet);
+});
+
+
+
+const familySetCount =
+  document.getElementById("familySetCount");
+
+const familyNormalGuide =
+  document.getElementById("familyNormalGuide");
+
+const familySmallGuide =
+  document.getElementById("familySmallGuide");
+
+const familyError =
+  document.getElementById("familyError");
+
+const familyNormal =
+  document.querySelectorAll(".family-normal");
+
+const familySmall =
+  document.querySelectorAll(".family-small");
+
+function checkFamilySet() {
+
+  const required =
+    Number(familySetCount.value) * 2;
+
+  familyNormalGuide.innerText =
+    `通常サイズのおむすびを${required}個選んでください`;
+
+  familySmallGuide.innerText =
+    `小さめサイズのおむすびを${required}個選んでください`;
+
+  let normalTotal = 0;
+  let smallTotal = 0;
+
+  familyNormal.forEach(input => {
+    normalTotal += Number(input.value);
+  });
+
+  familySmall.forEach(input => {
+    smallTotal += Number(input.value);
+  });
+
+  if (
+    normalTotal === required &&
+    smallTotal === required
+  ) {
+    familyError.innerText = "";
+  } else {
+
+    familyError.innerText =
+      `通常:${normalTotal}/${required}個　小さめ:${smallTotal}/${required}個`;
+
+  }
+
+}
+
+familySetCount.addEventListener(
+  "input",
+  checkFamilySet
+);
+
+familyNormal.forEach(input => {
+  input.addEventListener(
+    "input",
+    checkFamilySet
+  );
+});
+
+familySmall.forEach(input => {
+  input.addEventListener(
+    "input",
+    checkFamilySet
+  );
+});
 </script>
 
 </body>
