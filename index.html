@@ -40,11 +40,6 @@ async function main() {
     liffId: "2010008395-CCgQEFUT"
   });
 
-  if (!liff.isLoggedIn()) {
-    liff.login();
-    return;
-  }
-
   const profile = await liff.getProfile();
 
   console.log(profile.displayName);
