@@ -627,7 +627,64 @@ function goConfirm() {
   location.href =
     `confirm.html?data=${data}&time=${time}&total=${totalCount}`;
 }
-  
+
+function goConfirm() {
+
+  const time = document.getElementById("pickupTime").value;
+
+  const items = [];
+
+  const blocks = document.querySelectorAll(".item");
+
+  blocks.forEach(block => {
+
+    const name = block.childNodes[0]?.textContent?.trim();
+    const priceText = block.querySelector(".price")?.innerText;
+
+    const price = priceText ? Number(priceText.replace(/[^0-9]/g,"")) : 0;
+
+    const input = block.querySelector("input[type='number']");
+
+    if(input){
+
+      const count = Number(input.value);
+
+      if(count > 0){
+        items.push({
+          name,
+          count,
+          price
+        });
+      }
+
+    }
+
+  });
+
+  const setCount = Number(document.getElementById("setCount")?.value || 0);
+  if(setCount > 0){
+    items.push({
+      name:"選べるおむすびセット",
+      count:setCount,
+      price:1000
+    });
+  }
+
+  const familyCount = Number(document.getElementById("familySetCount")?.value || 0);
+  if(familyCount > 0){
+    items.push({
+      name:"親子むすびセット",
+      count:familyCount,
+      price:1400
+    });
+  }
+
+  const data = encodeURIComponent(JSON.stringify(items));
+
+  location.href =
+    `confirm.html?data=${data}&time=${time}`;
+}
+
 </script>
 
 </body>
