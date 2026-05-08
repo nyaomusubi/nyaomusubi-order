@@ -598,11 +598,12 @@ function goConfirm() {
 
   const items = [];
 
-  const blocks = document.querySelectorAll(".item");
+ const blocks = document.querySelectorAll("#onigiri .item, #side .item, #bento .item, #drink .item, #dessert .item");
 
   blocks.forEach(block => {
 
     const name = block.childNodes[0]?.textContent?.trim();
+    if(name.includes("セット")) return;
     const priceText = block.querySelector(".price")?.innerText;
 
     const price = priceText ? Number(priceText.replace(/[^0-9]/g,"")) : 0;
