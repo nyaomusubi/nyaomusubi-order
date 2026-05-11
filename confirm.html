@@ -87,6 +87,9 @@ h1{
 
 <script>
 
+const params =
+  new URLSearchParams(window.location.search);
+
 const customerName =
   params.get("name") || "";
 
@@ -94,10 +97,7 @@ const customerPhone =
   params.get("phone") || "";
 
 const note =
-  params.get("note") || "";  
-
-const params = new URLSearchParams(window.location.search);
-
+  params.get("note") || "";
 const data = JSON.parse(
   decodeURIComponent(params.get("data") || "[]")
 );
