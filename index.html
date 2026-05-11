@@ -632,10 +632,19 @@ const blocks = document.querySelectorAll(".item");
 
 blocks.forEach(block => {
 
-  const input = block.querySelector("input[type='number']");
+ const input =
+  block.querySelector("input[type='number']");
 
-  if(!input) return;
+if(!input){
+  return;
+}
 
+const priceElement =
+  block.querySelector(".price");
+
+if(!priceElement){
+  return;
+}
   const count = Number(input.value);
 
   if(count <= 0) return;
@@ -643,7 +652,14 @@ blocks.forEach(block => {
  let name = block.querySelector(".name")?.innerText;
 
 if(!name){
-  name = block.childNodes[0]?.textContent.trim();
+
+  const text =
+    block.childNodes[0]?.textContent?.trim();
+
+  if(text){
+    name = text;
+  }
+
 }
 if(!name) return;
   
