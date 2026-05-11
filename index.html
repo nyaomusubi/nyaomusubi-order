@@ -619,7 +619,7 @@ if(!name){
 // はちみつジンジャーの種類取得
 const select = block.querySelector("select");
 
-if(select){
+if(select && name){
   name += `（${select.value}）`;
 }
 
