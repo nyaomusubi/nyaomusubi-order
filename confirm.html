@@ -69,6 +69,11 @@ h1{
 </div>
 
 <div id="order"></div>
+<div class="card">
+  <h3>お客様情報</h3>
+
+  <p id="customerInfo"></p>
+</div>  
 
 <div class="card">
   <h3>受け取り時間</h3>
@@ -81,6 +86,15 @@ h1{
 </div>
 
 <script>
+
+const customerName =
+  params.get("name") || "";
+
+const customerPhone =
+  params.get("phone") || "";
+
+const note =
+  params.get("note") || "";  
 
 const params = new URLSearchParams(window.location.search);
 
@@ -179,7 +193,12 @@ button.innerText = "送信中...";
   }
 
 }
-
+document.getElementById("customerInfo").innerHTML =
+  `
+  お名前：${customerName}<br>
+  電話番号：${customerPhone}<br>
+  備考：${note || "なし"}
+  `;
 </script>
 <button onclick="history.back()" class="backBtn">
   注文画面に戻る
