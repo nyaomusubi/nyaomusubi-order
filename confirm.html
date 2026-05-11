@@ -138,33 +138,49 @@ document.getElementById("total").innerHTML =
 
 async function submitOrder() {
 
-  const sendData = {
-    orderId,
-    time,
-    items: data
-  };
+  try {
 
-  const response = await fetch(
-    "https://script.google.com/macros/s/AKfycbyoZkBzwfHfYa0GAJm6VEZf1yfo2Uppu-oOV4fPMy0TmPIfe7q1s0bK48hv3qYvb3yH/exec",
-    {
-      method: "POST",
-      body: JSON.stringify(sendData)
+    const sendData = {
+      orderId,
+      time,
+      items: data
+    };
+
+    console.log(sendData);
+
+    const response = await fetch(
+      "https://script.google.com/macros/s/AKfycbyoZkBzwfHfYa0GAJm6VEZf1yfo2Uppu-oOV4fPMy0TmPIfe7q1s0bK48hv3qYvb3yH/exec",
+      {
+        method: "POST",
+        body: JSON.stringify(sendData)
+      }
+    );
+
+    console.log(response);
+
+    const result = await response.json();
+
+    console.log(result);
+
+    if(result.status === "success"){
+
+      alert("注文が完了しました！");
+
+    }else{
+
+      alert("送信失敗");
+
     }
-  );
 
-  const result = await response.json();
+  } catch(error){
 
-  if(result.status === "success"){
+    console.error(error);
 
-    alert("注文が完了しました！");
-
-  }else{
-
-    alert("送信失敗");
+    alert("エラー：" + error);
 
   }
 
-}  
+}
 </script>
 <button onclick="history.back()" class="backBtn">
   注文画面に戻る
