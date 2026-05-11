@@ -152,6 +152,10 @@ async function submitOrder() {
       "https://script.google.com/macros/s/AKfycbyoZkBzwfHfYa0GAJm6VEZf1yfo2Uppu-oOV4fPMy0TmPIfe7q1s0bK48hv3qYvb3yH/exec",
       {
         method: "POST",
+        mode: "cors",
+headers: {
+  "Content-Type": "application/json"
+},
         body: JSON.stringify(sendData)
       }
     );
