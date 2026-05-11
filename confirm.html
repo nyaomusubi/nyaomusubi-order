@@ -136,12 +136,41 @@ document.getElementById("total").innerHTML =
   税込：¥${totalWithTax.toLocaleString()}
   `;
 
+async function submitOrder() {
+
+  const sendData = {
+    orderId,
+    time,
+    items: data
+  };
+
+  const response = await fetch(
+    "https://script.google.com/macros/s/AKfycbyoZkBzwfHfYa0GAJm6VEZf1yfo2Uppu-oOV4fPMy0TmPIfe7q1s0bK48hv3qYvb3yH/exec",
+    {
+      method: "POST",
+      body: JSON.stringify(sendData)
+    }
+  );
+
+  const result = await response.json();
+
+  if(result.status === "success"){
+
+    alert("注文が完了しました！");
+
+  }else{
+
+    alert("送信失敗");
+
+  }
+
+}  
 </script>
 <button onclick="history.back()" class="backBtn">
   注文画面に戻る
-<button class="submitBtn">
+<button class="submitBtn" onclick="submitOrder()">
   注文を確定する
-</button>  
+</button>
 </button>  
 </body>
 </html>
