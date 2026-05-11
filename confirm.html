@@ -84,9 +84,10 @@ h1{
 
 const params = new URLSearchParams(window.location.search);
 
-const data = JSON.parse(decodeURIComponent(params.get("data") || "[]"));
-console.log("params全部:", window.location.search);
-console.log("data文字列:", params.get("data"));
+const data = JSON.parse(
+  decodeURIComponent(params.get("data") || "[]")
+);
+
 const time = params.get("time");
 
 const orderId =
@@ -115,12 +116,14 @@ document.getElementById("order").innerHTML =
   }).join("");
 
 // 受け取り時間
-document.getElementById("time").innerText = time || "未選択";
+document.getElementById("time").innerText =
+  time || "未選択";
 
+// 注文番号
 document.getElementById("orderId").innerText =
-  orderId;  
+  orderId;
 
-// 合計金額（税抜→税込）
+// 合計計算
 let totalPrice = 0;
 
 data.forEach(item => {
@@ -128,7 +131,9 @@ data.forEach(item => {
 });
 
 const taxRate = 0.08;
-const totalWithTax = Math.round(totalPrice * (1 + taxRate));
+
+const totalWithTax =
+  Math.round(totalPrice * (1 + taxRate));
 
 document.getElementById("total").innerHTML =
   `
@@ -136,6 +141,7 @@ document.getElementById("total").innerHTML =
   税込：¥${totalWithTax.toLocaleString()}
   `;
 
+// 注文送信
 async function submitOrder() {
 
   try {
@@ -146,22 +152,28 @@ async function submitOrder() {
       items: data
     };
 
-    console.log(sendData);
+    await fetch(
+      "https://script.google.com/macros/s/AKfycbyoZkBzwfHfYa0GAJm6VEZf1yfo2Uppu-oOV4fPMy0TmPIfe7q1s0bK48hv3qYvb3yH/exec",
+      {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(sendData)
+      }
+    );
 
-  await fetch(
-  "https://script.google.com/macros/s/AKfycbyoZkBzwfHfYa0GAJm6VEZf1yfo2Uppu-oOV4fPMy0TmPIfe7q1s0bK48hv3qYvb3yH/exec",
-  {
-    method: "POST",
-    mode: "no-cors",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(sendData)
+    alert("注文が完了しました！");
+
+  } catch(error){
+
+    alert("エラー：" + error);
+
   }
-);
 
-alert("注文が完了しました！");
 }
+
 </script>
 <button onclick="history.back()" class="backBtn">
   注文画面に戻る
