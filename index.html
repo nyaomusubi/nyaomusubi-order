@@ -670,7 +670,7 @@ if(select && name){
 
 });
     
-  const setCount = Number(document.getElementById("setCount")?.value || 0);
+const setCount = Number(document.getElementById("setCount")?.value || 0);
   if(setCount > 0){
    const setItems = [];
 
@@ -769,11 +769,12 @@ if(familyCount > 0){
   const data = encodeURIComponent(JSON.stringify(items));
 
  location.href =
-  `confirm.html?data=${data}`
-  + `&time=${time}`
-  + `&name=${encodeURIComponent(customerName)}`
-  + `&phone=${encodeURIComponent(customerPhone)}`
-  + `&note=${encodeURIComponent(note)}`;
+  "confirm.html"
+  + "?data=" + data
+  + "&time=" + encodeURIComponent(time)
+  + "&name=" + encodeURIComponent(customerName)
+  + "&phone=" + encodeURIComponent(customerPhone)
+  + "&note=" + encodeURIComponent(note);
 }
 
 </script>
