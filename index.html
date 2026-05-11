@@ -766,11 +766,12 @@ if(familyCount > 0){
 }
   }
 
-  const data = encodeURIComponent(JSON.stringify(items));
+const orderData =
+  encodeURIComponent(JSON.stringify(items));
 
- location.href =
+location.href =
   "confirm.html"
-  + "?data=" + data
+  + "?data=" + orderData
   + "&time=" + encodeURIComponent(time)
   + "&name=" + encodeURIComponent(customerName)
   + "&phone=" + encodeURIComponent(customerPhone)
