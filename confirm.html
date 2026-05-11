@@ -145,7 +145,12 @@ document.getElementById("total").innerHTML =
 async function submitOrder() {
 
   try {
+const button =
+  document.getElementById("submitBtn");
 
+button.disabled = true;
+
+button.innerText = "送信中...";
     const sendData = {
       orderId,
       time,
@@ -180,7 +185,11 @@ async function submitOrder() {
   注文画面に戻る
 </button>
 
-<button class="submitBtn" onclick="submitOrder()">
+<button
+  id="submitBtn"
+  class="submitBtn"
+  onclick="submitOrder()"
+>
   注文を確定する
 </button>
 </body>
