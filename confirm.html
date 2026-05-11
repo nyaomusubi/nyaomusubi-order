@@ -164,7 +164,8 @@ async function submitOrder() {
       }
     );
 
-    alert("注文が完了しました！");
+    location.href =
+  `thanks.html?orderId=${orderId}&time=${time}`;
 
   } catch(error){
 
