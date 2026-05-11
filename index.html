@@ -615,7 +615,8 @@ blocks.forEach(block => {
 if(!name){
   name = block.childNodes[0]?.textContent.trim();
 }
-
+if(!name) return;
+  
 // はちみつジンジャーの種類取得
 const select = block.querySelector("select");
 
