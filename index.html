@@ -768,8 +768,12 @@ if(familyCount > 0){
 
   const data = encodeURIComponent(JSON.stringify(items));
 
-  location.href =
-    `confirm.html?data=${data}&time=${time}`;
+ location.href =
+  `confirm.html?data=${data}`
+  + `&time=${time}`
+  + `&name=${encodeURIComponent(customerName)}`
+  + `&phone=${encodeURIComponent(customerPhone)}`
+  + `&note=${encodeURIComponent(note)}`;
 }
 
 </script>
