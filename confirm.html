@@ -165,11 +165,10 @@ const button =
 button.disabled = true;
 
 button.innerText = "送信中...";
-   const sendData = {
+const sendData = {
   orderNumber: orderId,
   pickupTime: time,
-  productName: data.map(i => i.name).join(", "),
-  quantity: data.length,
+  items: data,
   setContents: "",
   totalPrice: Number(totalWithTax),
   customerName,
