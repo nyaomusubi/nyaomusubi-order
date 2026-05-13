@@ -166,11 +166,13 @@ button.disabled = true;
 
 button.innerText = "送信中...";
     const sendData = {
-      orderId,
-      time,
-      items: data
-    };
-
+  orderNumber,
+  pickupTime,
+  productName,
+  quantity,
+  setContents,
+  totalPrice
+};
     await fetch(
       "https://script.google.com/macros/s/AKfycbyAc8TEQzMwrDfNgXhNjG-ravJK9EqbB00GflnXLVP-rHqtiScsju1YTH3D39LosevX/exec",
       {
