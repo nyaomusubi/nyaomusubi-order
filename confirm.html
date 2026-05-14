@@ -169,7 +169,16 @@ const sendData = {
   orderNumber: orderId,
   pickupTime: time,
   items: data,
-  setContents: "",
+
+  setContents: data
+    .map(item => {
+      if (!item.detail) return "";
+      return item.detail
+        .map(d => `${item.name}：${d.name}×${d.count}`)
+        .join(" / ");
+    })
+    .join("\n"),
+
   totalPrice: Number(totalWithTax),
   customerName,
   customerPhone
