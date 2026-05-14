@@ -124,9 +124,17 @@ textarea{
 } 
 .item-grid{
   display:grid;
-  grid-template-columns:
-    repeat(2, 1fr);
+  grid-template-columns:1fr;
   gap:15px;
+}
+
+@media(min-width:768px){
+
+  .item-grid{
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
 }
 
 .item-grid .item{
