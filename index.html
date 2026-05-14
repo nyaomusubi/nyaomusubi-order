@@ -794,9 +794,13 @@ if(familyCount > 0){
 const orderData =
   encodeURIComponent(JSON.stringify(items));
 
+const pickupDate =
+  document.getElementById("pickupDate").value;
+
 location.href =
   "confirm.html"
   + "?data=" + orderData
+  + "&date=" + encodeURIComponent(pickupDate)
   + "&time=" + encodeURIComponent(time)
   + "&name=" + encodeURIComponent(customerName)
   + "&phone=" + encodeURIComponent(customerPhone)
