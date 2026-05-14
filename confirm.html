@@ -101,7 +101,7 @@ const note =
 const data = JSON.parse(
   decodeURIComponent(params.get("data") || "[]")
 );
-
+const pickupDate = document.getElementById("pickupDate").value;
 const time = params.get("time");
 
 const orderId =
@@ -167,6 +167,7 @@ button.disabled = true;
 button.innerText = "送信中...";
 const sendData = {
   orderNumber: orderId,
+  pickupDate,
   pickupTime: time,
   items: data.map(item => ({
     ...item,
