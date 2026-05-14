@@ -132,7 +132,10 @@ document.getElementById("order").innerHTML =
       </div>
     `;
   }).join("");
-
+// 受け取り日
+document.getElementById("pickupDateText").innerText =
+  pickupDate || "未選択";
+  
 // 受け取り時間
 document.getElementById("time").innerText =
   time || "未選択";
