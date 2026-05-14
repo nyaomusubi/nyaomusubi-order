@@ -5,7 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>にゃおむすび モバイルオーダー</title>
 
-  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js">document.querySelectorAll(".plus").forEach(btn => {
+
+  btn.addEventListener("click", () => {
+
+    const input =
+      btn.parentElement.querySelector("input");
+
+    input.value =
+      Number(input.value) + 1;
+
+  });
+
+});
+
+document.querySelectorAll(".minus").forEach(btn => {
+
+  btn.addEventListener("click", () => {
+
+    const input =
+      btn.parentElement.querySelector("input");
+
+    const current =
+      Number(input.value);
+
+    if(current > 0){
+      input.value = current - 1;
+    }
+
+  });
+
+});
+  </script>
 
   <style>
 
@@ -156,6 +187,28 @@ textarea{
 .size-input{
   width:70px;
 }
+.counter{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.counter button{
+  position:static;
+  width:36px;
+  height:36px;
+  padding:0;
+  border-radius:50%;
+  font-size:20px;
+  background:#9fc9b0;
+  color:white;
+}
+
+.counter input{
+  width:50px;
+  text-align:center;
+  font-size:16px;
+}
   </style>
 </head>
 
@@ -243,7 +296,16 @@ textarea{
   <div class="name">鮭むすび</div>
 
   <div class="size-row">
-    <span>通常　280円</span>
+
+  <span>通常　280円</span>
+
+  <div class="counter">
+
+    <button
+      type="button"
+      class="minus"
+    >－</button>
+
     <input
       type="number"
       class="size-input"
@@ -252,7 +314,15 @@ textarea{
       min="0"
       value="0"
     >
+
+    <button
+      type="button"
+      class="plus"
+    >＋</button>
+
   </div>
+
+</div>
 
   <div class="size-row">
     <span>小さめ　185円</span>
