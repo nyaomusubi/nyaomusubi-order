@@ -131,7 +131,23 @@ textarea{
 
 .item-grid .item{
   margin-top:0;
-}    
+} 
+.item-image{
+  width:100%;
+  border-radius:10px;
+  margin-bottom:10px;
+}
+
+.size-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:10px;
+}
+
+.size-input{
+  width:70px;
+}
   </style>
 </head>
 
@@ -200,6 +216,7 @@ textarea{
 <div class="item-grid">
 
 <div class="item">
+  <img src="nodoguro.jpeg" class="item-image">
   <div class="name">出汁塩むすび（通常）</div>
   <div class="price">230円</div>
   <input type="number" min="0" value="0">
@@ -211,22 +228,36 @@ textarea{
   <input type="number" min="0" value="0">
 </div>
 
-<div class="item">
+<div class="item multi-item">
 
   <img src="shake.jpg" class="item-image">
 
-  <div class="name">鮭むすび（通常）</div>
+  <div class="name">鮭むすび</div>
 
-  <div class="price">280円</div>
+  <div class="size-row">
+    <span>通常　280円</span>
+    <input
+      type="number"
+      class="size-input"
+      data-name="鮭むすび（通常）"
+      data-price="280"
+      min="0"
+      value="0"
+    >
+  </div>
 
-  <input type="number" min="0" value="0">
+  <div class="size-row">
+    <span>小さめ　185円</span>
+    <input
+      type="number"
+      class="size-input"
+      data-name="鮭むすび（小さめ）"
+      data-price="185"
+      min="0"
+      value="0"
+    >
+  </div>
 
-</div>
-
-<div class="item">
-  <div class="name">鮭むすび（小さめ）</div>
-  <div class="price">185円</div>
-  <input type="number" min="0" value="0">
 </div>
 <div class="item">
   <div class="name">自家製こんぶ佃煮おむすび（通常）</div>
@@ -691,57 +722,28 @@ const blocks = document.querySelectorAll(".item");
 
 blocks.forEach(block => {
 
- const input =
-  block.querySelector("input[type='number']");
+  const inputs =
+    block.querySelectorAll(".size-input");
 
-if(!input){
-  return;
-}
+  // 通常商品用
+  if(inputs.length > 0){
 
-const priceElement =
-  block.querySelector(".price");
+    inputs.forEach(input => {
 
-if(!priceElement){
-  return;
-}
-  const count = Number(input.value);
+      const count = Number(input.value);
 
-  if(count <= 0) return;
+      if(count <= 0) return;
 
- let name = block.querySelector(".name")?.innerText;
+      items.push({
+        name: input.dataset.name,
+        count,
+        price: Number(input.dataset.price)
+      });
 
-if(!name){
+    });
 
-  const text =
-    block.childNodes[0]?.textContent?.trim();
-
-  if(text){
-    name = text;
+    return;
   }
-
-}
-if(!name) return;
-  
-// はちみつジンジャーの種類取得
-const select = block.querySelector("select");
-
-if(select && name){
-  name += `（${select.value}）`;
-}
-
-  const priceText =
-    block.querySelector(".price")?.innerText;
-
-  const price =
-    priceText
-      ? Number(priceText.replace(/[^0-9]/g,""))
-      : 0;
-
-  items.push({
-    name,
-    count,
-    price
-  });
 
 });
     
