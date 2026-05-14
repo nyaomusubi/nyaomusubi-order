@@ -168,17 +168,12 @@ button.innerText = "送信中...";
 const sendData = {
   orderNumber: orderId,
   pickupTime: time,
-  items: data,
-
-  setContents: data
-    .map(item => {
-      if (!item.detail) return "";
-      return item.detail
-        .map(d => `${item.name}：${d.name}×${d.count}`)
-        .join(" / ");
-    })
-    .join("\n"),
-
+  items: data.map(item => ({
+    ...item,
+    setContents: item.detail
+      ? item.detail.map(d => `${d.name}×${d.count}`).join(" / ")
+      : ""
+  })),
   totalPrice: Number(totalWithTax),
   customerName,
   customerPhone
