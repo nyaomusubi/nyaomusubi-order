@@ -101,7 +101,8 @@ const note =
 const data = JSON.parse(
   decodeURIComponent(params.get("data") || "[]")
 );
-const pickupDate = document.getElementById("pickupDate").value;
+const pickupDate =
+  params.get("date") || "";
 const time = params.get("time");
 
 const orderId =
