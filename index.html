@@ -5,38 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>にゃおむすび モバイルオーダー</title>
 
-  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js">document.querySelectorAll(".plus").forEach(btn => {
-
-  btn.addEventListener("click", () => {
-
-    const input =
-      btn.parentElement.querySelector("input");
-
-    input.value =
-      Number(input.value) + 1;
-
-  });
-
-});
-
-document.querySelectorAll(".minus").forEach(btn => {
-
-  btn.addEventListener("click", () => {
-
-    const input =
-      btn.parentElement.querySelector("input");
-
-    const current =
-      Number(input.value);
-
-    if(current > 0){
-      input.value = current - 1;
-    }
-
-  });
-
-});
-  </script>
+  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
 
   <style>
 
@@ -674,6 +643,37 @@ async function main() {
 }
 
 main();
+document.querySelectorAll(".plus").forEach(btn => {
+
+  btn.addEventListener("click", () => {
+
+    const input =
+      btn.parentElement.querySelector("input");
+
+    input.value =
+      Number(input.value) + 1;
+
+  });
+
+});
+
+document.querySelectorAll(".minus").forEach(btn => {
+
+  btn.addEventListener("click", () => {
+
+    const input =
+      btn.parentElement.querySelector("input");
+
+    const current =
+      Number(input.value);
+
+    if(current > 0){
+      input.value = current - 1;
+    }
+
+  });
+
+});  
 const setCount = document.getElementById("setCount");
 const setGuide = document.getElementById("setGuide");
 const setError = document.getElementById("setError");
