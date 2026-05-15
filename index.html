@@ -1506,16 +1506,46 @@ textarea{
   
 <h2 id="drink">ドリンク</h2>
 
-<div class="item">
-  アイスコーヒー
-  <div class="price">200円</div>
-  <input type="number" min="0" value="0">
-</div>
-  
-<div class="item">
-  ホットコーヒー
-  <div class="price">200円</div>
-  <input type="number" min="0" value="0">
+<div class="item multi-item">
+
+  <img src="icecoffe.jpg" class="item-image">
+
+  <div class="name">コーヒー</div>
+
+  <div class="size-row">
+
+    <select class="drink-type">
+
+      <option>ホット</option>
+      <option>アイス</option>
+
+    </select>
+
+    <div class="counter">
+
+      <button
+        type="button"
+        class="minus"
+      >－</button>
+
+      <input
+        type="number"
+        class="size-input"
+        data-name="コーヒー"
+        data-price="200"
+        min="0"
+        value="0"
+      >
+
+      <button
+        type="button"
+        class="plus"
+      >＋</button>
+
+    </div>
+
+  </div>
+
 </div>
 
 <div class="item">
@@ -1542,25 +1572,41 @@ textarea{
   <input type="number" min="0" value="0">
 </div>
 
-<div class="item">
+<div class="item multi-item">
 
-  はちみつジンジャー
+  <img src="hachimitsujinger.jpg" class="item-image">
 
-  <div class="price">200円</div>
+  <div class="name">はちみつジンジャー</div>
 
-  <label>種類を選択</label><br>
+  <div class="size-row">
 
-  <select>
-    <option>ホット</option>
-    <option>アイス</option>
-  </select>
+    <select class="drink-type">
 
-  <br><br>
+      <option>ホット</option>
+      <option>アイス</option>
 
-  <input type="number" min="0" value="0">
+    </select>
+
+    <div class="counter">
+
+      <button type="button" class="minus">－</button>
+
+      <input
+        type="number"
+        class="size-input"
+        data-name="はちみつジンジャー"
+        data-price="200"
+        min="0"
+        value="0"
+      >
+
+      <button type="button" class="plus">＋</button>
+
+    </div>
+
+  </div>
 
 </div>
-
 <div class="item">
   ノンアルコール梅酒 缶
   <div class="price">200円</div>
