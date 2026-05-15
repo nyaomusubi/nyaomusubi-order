@@ -906,64 +906,265 @@ textarea{
 
 <div class="item">
 
-  <h3>親子むすびセット　1400円</h3>
-<p class="small">
-※通常サイズのお好きなおむすび２つと小さいサイズのおむすび２つ、本日の惣菜３品のセットです。
-</p>
+  <img src="oyako.jpg" class="item-image set-image">
 
-  <p>セット数を入力してください</p>
+  <div class="set-title">
+    親子むすびセット　1400円
+  </div>
 
-  <input type="number" id="familySetCount" min="0" value="0">
-
-  <hr>
-
-  <p id="familyNormalGuide">
-    通常サイズのおむすびを0個選んでください
+  <p class="small-text">
+    ※通常サイズのおむすび２つと
+    小さめサイズのおむすび２つ、
+    本日の惣菜３品のセットです。
   </p>
 
-  <label>出汁塩むすび（のどぐろ）</label><br>
-  <input type="number" class="family-normal" min="0" value="0"><br><br>
+  <div class="size-row">
 
-  <label>鮭むすび</label><br>
-  <input type="number" class="family-normal" min="0" value="0"><br><br>
+    <span>セット数</span>
 
-  <label>和風ツナマヨむすび</label><br>
-  <input type="number" class="family-normal" min="0" value="0"><br><br>
+    <div class="counter">
 
-  <label>自家製こんぶ佃煮むすび</label><br>
-  <input type="number" class="family-normal" min="0" value="0"><br><br>
+      <button
+        type="button"
+        class="minus"
+      >－</button>
 
-  <label>明太子むすび</label><br>
-  <input type="number" class="family-normal" min="0" value="0"><br><br>
+      <input
+        type="number"
+        id="familySetCount"
+        min="0"
+        value="0"
+        class="set-count"
+      >
 
-  <label>明太高菜むすび</label><br>
-  <input type="number" class="family-normal" min="0" value="0"><br><br>
+      <button
+        type="button"
+        class="plus"
+      >＋</button>
 
-  <hr>
+    </div>
 
-  <p id="familySmallGuide">
-    小さめサイズのおむすびを0個選んでください
-  </p>
+  </div>
 
-  <label>出汁塩むすび（のどぐろ）</label><br>
-  <input type="number" class="family-small" min="0" value="0"><br><br>
+  <div class="set-box">
 
-  <label>鮭むすび</label><br>
-  <input type="number" class="family-small" min="0" value="0"><br><br>
+    <p id="familyNormalGuide">
+      通常サイズのおむすびを0個選んでください
+    </p>
 
-  <label>和風ツナマヨむすび</label><br>
-  <input type="number" class="family-small" min="0" value="0"><br><br>
+    <div class="set-select-row">
+      <span>出汁塩むすび（のどぐろ）</span>
 
-  <label>自家製こんぶ佃煮むすび</label><br>
-  <input type="number" class="family-small" min="0" value="0"><br><br>
+      <div class="counter">
+        <button type="button" class="minus">－</button>
 
-  <label>明太子むすび</label><br>
-  <input type="number" class="family-small" min="0" value="0"><br><br>
+        <input
+          type="number"
+          class="family-normal"
+          min="0"
+          value="0"
+        >
 
-  <label>明太高菜むすび</label><br>
-  <input type="number" class="family-small" min="0" value="0"><br><br>
+        <button type="button" class="plus">＋</button>
+      </div>
+    </div>
 
-  <p id="familyError" style="color:red;"></p>
+    <div class="set-select-row">
+      <span>鮭むすび</span>
+
+      <div class="counter">
+        <button type="button" class="minus">－</button>
+
+        <input
+          type="number"
+          class="family-normal"
+          min="0"
+          value="0"
+        >
+
+        <button type="button" class="plus">＋</button>
+      </div>
+    </div>
+
+    <div class="set-select-row">
+      <span>和風ツナマヨむすび</span>
+
+      <div class="counter">
+        <button type="button" class="minus">－</button>
+
+        <input
+          type="number"
+          class="family-normal"
+          min="0"
+          value="0"
+        >
+
+        <button type="button" class="plus">＋</button>
+      </div>
+    </div>
+
+    <div class="set-select-row">
+      <span>自家製こんぶ佃煮むすび</span>
+
+      <div class="counter">
+        <button type="button" class="minus">－</button>
+
+        <input
+          type="number"
+          class="family-normal"
+          min="0"
+          value="0"
+        >
+
+        <button type="button" class="plus">＋</button>
+      </div>
+    </div>
+
+    <div class="set-select-row">
+      <span>明太子むすび</span>
+
+      <div class="counter">
+        <button type="button" class="minus">－</button>
+
+        <input
+          type="number"
+          class="family-normal"
+          min="0"
+          value="0"
+        >
+
+        <button type="button" class="plus">＋</button>
+      </div>
+    </div>
+
+    <div class="set-select-row">
+      <span>明太高菜むすび</span>
+
+      <div class="counter">
+        <button type="button" class="minus">－</button>
+
+        <input
+          type="number"
+          class="family-normal"
+          min="0"
+          value="0"
+        >
+
+        <button type="button" class="plus">＋</button>
+      </div>
+    </div>
+
+    <hr>
+
+    <p id="familySmallGuide">
+      小さめサイズのおむすびを0個選んでください
+    </p>
+
+    <div class="set-select-row">
+      <span>出汁塩むすび（のどぐろ）</span>
+
+      <div class="counter">
+        <button type="button" class="minus">－</button>
+
+        <input
+          type="number"
+          class="family-small"
+          min="0"
+          value="0"
+        >
+
+        <button type="button" class="plus">＋</button>
+      </div>
+    </div>
+
+    <div class="set-select-row">
+      <span>鮭むすび</span>
+
+      <div class="counter">
+        <button type="button" class="minus">－</button>
+
+        <input
+          type="number"
+          class="family-small"
+          min="0"
+          value="0"
+        >
+
+        <button type="button" class="plus">＋</button>
+      </div>
+    </div>
+
+    <div class="set-select-row">
+      <span>和風ツナマヨむすび</span>
+
+      <div class="counter">
+        <button type="button" class="minus">－</button>
+
+        <input
+          type="number"
+          class="family-small"
+          min="0"
+          value="0"
+        >
+
+        <button type="button" class="plus">＋</button>
+      </div>
+    </div>
+
+    <div class="set-select-row">
+      <span>自家製こんぶ佃煮むすび</span>
+
+      <div class="counter">
+        <button type="button" class="minus">－</button>
+
+        <input
+          type="number"
+          class="family-small"
+          min="0"
+          value="0"
+        >
+
+        <button type="button" class="plus">＋</button>
+      </div>
+    </div>
+
+    <div class="set-select-row">
+      <span>明太子むすび</span>
+
+      <div class="counter">
+        <button type="button" class="minus">－</button>
+
+        <input
+          type="number"
+          class="family-small"
+          min="0"
+          value="0"
+        >
+
+        <button type="button" class="plus">＋</button>
+      </div>
+    </div>
+
+    <div class="set-select-row">
+      <span>明太高菜むすび</span>
+
+      <div class="counter">
+        <button type="button" class="minus">－</button>
+
+        <input
+          type="number"
+          class="family-small"
+          min="0"
+          value="0"
+        >
+
+        <button type="button" class="plus">＋</button>
+      </div>
+    </div>
+
+    <p id="familyError" style="color:red;"></p>
+
+  </div>
 
 </div>
 <h2 id="side">サイドメニュー</h2>
