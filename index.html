@@ -230,6 +230,11 @@ textarea{
     align-items:start;
   }
 
+} 
+.drink-image,
+.dessert-image{
+  aspect-ratio:16/9;
+  object-fit:cover;
 }    
   </style>
 </head>
@@ -1508,7 +1513,7 @@ textarea{
 
 <div class="item multi-item">
 
-  <img src="icecoffe.jpg" class="item-image">
+  <img src="icecoffe.jpg" class="item-image drink-image">
 
   <div class="name">コーヒー</div>
 
@@ -1552,7 +1557,7 @@ textarea{
 
 <div class="item multi-item">
 
-  <img src="remonade.jpg" class="item-image">
+  <img src="remonade.jpg" class="item-image drink-image">
 
   <div class="name">レモネード</div>
 
@@ -1588,7 +1593,7 @@ textarea{
 </div>
 <div class="item multi-item">
 
-  <img src="calpis.jpg" class="item-image">
+  <img src="calpis.jpg" class="item-image drink-image">
 
   <div class="name">カルピス</div>
 
@@ -1625,7 +1630,7 @@ textarea{
 
 <div class="item multi-item">
 
-  <img src="ichigonofreshsoda.jpg" class="item-image">
+  <img src="ichigonofreshsoda.jpg" class="item-image drink-image">
 
   <div class="name">いちごのフレッシュソーダ</div>
 
@@ -1662,7 +1667,7 @@ textarea{
 
 <div class="item multi-item">
 
-  <img src="chaitea.jpg" class="item-image">
+  <img src="chaitea.jpg" class="item-image drink-image">
 
   <div class="name">チャイティー（ホットのみ）</div>
 
@@ -1699,7 +1704,7 @@ textarea{
 
 <div class="item multi-item">
 
-  <img src="hachimitsujinger.jpg" class="item-image">
+  <img src="hachimitsujinger.jpg" class="item-image drink-image">
 
   <div class="name">はちみつジンジャー</div>
 
@@ -1742,7 +1747,7 @@ textarea{
 </div>
 <div class="item multi-item">
 
-  <img src="nonalcorumeshu.jpg" class="item-image">
+  <img src="nonalcorumeshu.jpg" class="item-image drink-image">
 
   <div class="name">ノンアルコール梅酒　缶</div>
 
@@ -1779,7 +1784,7 @@ textarea{
 
 <div class="item multi-item">
 
-  <img src="nonalcorbeer.jpg" class="item-image">
+  <img src="nonalcorbeer.jpg" class="item-image drink-image">
 
   <div class="name">ノンアルコールビール　缶</div>
 
@@ -1816,7 +1821,7 @@ textarea{
 
 <div class="item multi-item">
 
-  <img src="gomamugicha.jpg" class="item-image">
+  <img src="gomamugicha.jpg"class="item-image drink-image">
 
   <div class="name">胡麻麦茶350ml（税込）</div>
 
@@ -1857,8 +1862,7 @@ textarea{
 
 <div class="item multi-item">
 
-  <img src="oreodemaekan.jpg" class="item-image">
-
+  <img src="oreodemaekan.jpg"class="item-image dessert-image">
   <div class="name">オレオのレアチーズケーキ</div>
 
   <div class="size-row">
@@ -1893,7 +1897,7 @@ textarea{
 </div>
 <div class="item multi-item">
 
-  <img src="putidaifuku choko&anko.jpg" class="item-image">
+  <img src="putidaifuku choko&anko.jpg" class="item-image dessert-image">
 
   <div class="name">プチ大福（チョコ&餡子）4つ</div>
 
@@ -1929,7 +1933,7 @@ textarea{
 </div>  
 <div class="item multi-item">
 
-  <img src="putidaifuku choko&milk.jpg" class="item-image">
+  <img src="putidaifuku choko&milk.jpg"class="item-image dessert-image">
 
   <div class="name">プチ大福（チョコ&ミルク）4つ</div>
 
@@ -1965,7 +1969,7 @@ textarea{
 </div>
 <div class="item multi-item">
 
-  <img src="snow ball.jpg" class="item-image">
+  <img src="snow ball.jpg" class="item-image dessert-image">
 
   <div class="name">米粉のスノーボール</div>
 
@@ -2000,7 +2004,10 @@ textarea{
 
 </div>  
 
-<button onclick="goConfirm()">
+<button
+  class="main-button"
+  onclick="goConfirm()"
+>
   注文内容を確認する
 </button>
 <script>
