@@ -216,6 +216,20 @@ textarea{
   font-size:13px;
   color:#666;
   line-height:1.5;
+}
+.set-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:20px;
+}
+
+@media(min-width:900px){
+
+  .set-grid{
+    grid-template-columns:1fr 1fr;
+    align-items:start;
+  }
+
 }    
   </style>
 </head>
@@ -752,6 +766,8 @@ textarea{
 
 <h2 id="set">セット</h2>
 
+<div class="set-grid">
+
 <div class="item">
   <img src="eraberuomusubiset.jpg" class="item-image set-image">
   <div class="set-title">
@@ -1167,6 +1183,7 @@ textarea{
   </div>
 
 </div>
+</div>  
 <h2 id="side">サイドメニュー</h2>
 
 <div class="item">
