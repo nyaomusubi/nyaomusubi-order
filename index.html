@@ -179,6 +179,41 @@ textarea{
   text-align:center;
   font-size:16px;
 }
+.set-select-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin:10px 0;
+  gap:10px;
+}
+
+.set-select-row span{
+  font-size:14px;
+  flex:1;
+}
+
+.set-count{
+  width:80px;
+}
+
+.set-box{
+  background:#fffaf7;
+  border:1px solid #f0d6da;
+  border-radius:12px;
+  padding:12px;
+  margin-top:15px;
+}
+
+.set-title{
+  font-weight:bold;
+  margin-bottom:8px;
+}
+
+.small-text{
+  font-size:13px;
+  color:#666;
+  line-height:1.5;
+}    
   </style>
 </head>
 
@@ -716,38 +751,155 @@ textarea{
 
 <div class="item">
 
-  <h3>選べるおむすびセット　1000円</h3>
-<p class="small">
-※お好きなおむすび２つと本日の惣菜３品のセットです。
-</p>
-  <p>セット数を入力してください</p>
+  <div class="set-title">
+    選べるおむすびセット　1000円
+  </div>
 
-  <input type="number" id="setCount" min="0" value="0">
+  <p class="small-text">
+    ※お好きなおむすび２つと本日の惣菜３品のセットです。
+  </p>
 
-  <p id="setGuide">通常サイズのおむすびを0個選んでください</p>
+  <div class="size-row">
 
-  <label>出汁塩むすび（のどぐろ）</label><br>
-  <input type="number" class="set-onigiri" min="0" value="0"><br><br>
+    <span>セット数</span>
 
-  <label>鮭むすび</label><br>
-  <input type="number" class="set-onigiri" min="0" value="0"><br><br>
+    <div class="counter">
 
-  <label>和風ツナマヨむすび</label><br>
-  <input type="number" class="set-onigiri" min="0" value="0"><br><br>
+      <button
+        type="button"
+        class="minus"
+      >－</button>
 
-  <label>自家製こんぶ佃煮むすび</label><br>
-  <input type="number" class="set-onigiri" min="0" value="0"><br><br>
+      <input
+        type="number"
+        id="setCount"
+        min="0"
+        value="0"
+        class="set-count"
+      >
 
-  <label>明太子むすび</label><br>
-  <input type="number" class="set-onigiri" min="0" value="0"><br><br>
+      <button
+        type="button"
+        class="plus"
+      >＋</button>
 
-  <label>明太高菜むすび</label><br>
-  <input type="number" class="set-onigiri" min="0" value="0"><br><br>
+    </div>
 
-  <p id="setError" style="color:red;"></p>
+  </div>
+
+  <div class="set-box">
+
+    <p id="setGuide">
+      通常サイズのおむすびを0個選んでください
+    </p>
+
+    <div class="set-select-row">
+      <span>出汁塩むすび（のどぐろ）</span>
+
+      <div class="counter">
+        <button type="button" class="minus">－</button>
+
+        <input
+          type="number"
+          class="set-onigiri"
+          min="0"
+          value="0"
+        >
+
+        <button type="button" class="plus">＋</button>
+      </div>
+    </div>
+
+    <div class="set-select-row">
+      <span>鮭むすび</span>
+
+      <div class="counter">
+        <button type="button" class="minus">－</button>
+
+        <input
+          type="number"
+          class="set-onigiri"
+          min="0"
+          value="0"
+        >
+
+        <button type="button" class="plus">＋</button>
+      </div>
+    </div>
+
+    <div class="set-select-row">
+      <span>和風ツナマヨむすび</span>
+
+      <div class="counter">
+        <button type="button" class="minus">－</button>
+
+        <input
+          type="number"
+          class="set-onigiri"
+          min="0"
+          value="0"
+        >
+
+        <button type="button" class="plus">＋</button>
+      </div>
+    </div>
+
+    <div class="set-select-row">
+      <span>自家製こんぶ佃煮むすび</span>
+
+      <div class="counter">
+        <button type="button" class="minus">－</button>
+
+        <input
+          type="number"
+          class="set-onigiri"
+          min="0"
+          value="0"
+        >
+
+        <button type="button" class="plus">＋</button>
+      </div>
+    </div>
+
+    <div class="set-select-row">
+      <span>明太子むすび</span>
+
+      <div class="counter">
+        <button type="button" class="minus">－</button>
+
+        <input
+          type="number"
+          class="set-onigiri"
+          min="0"
+          value="0"
+        >
+
+        <button type="button" class="plus">＋</button>
+      </div>
+    </div>
+
+    <div class="set-select-row">
+      <span>明太高菜むすび</span>
+
+      <div class="counter">
+        <button type="button" class="minus">－</button>
+
+        <input
+          type="number"
+          class="set-onigiri"
+          min="0"
+          value="0"
+        >
+
+        <button type="button" class="plus">＋</button>
+      </div>
+    </div>
+
+    <p id="setError" style="color:red;"></p>
+
+  </div>
 
 </div>
-
 
 <div class="item">
 
