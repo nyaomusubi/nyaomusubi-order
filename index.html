@@ -1156,6 +1156,15 @@ document.querySelectorAll(".plus").forEach(btn => {
     input.value =
       Number(input.value) + 1;
 
+    // セット判定を更新
+    if(typeof checkSet === "function"){
+      checkSet();
+    }
+
+    if(typeof checkFamilySet === "function"){
+      checkFamilySet();
+    }
+
   });
 
 });
@@ -1171,12 +1180,23 @@ document.querySelectorAll(".minus").forEach(btn => {
       Number(input.value);
 
     if(current > 0){
+
       input.value = current - 1;
+
+    }
+
+    // セット判定を更新
+    if(typeof checkSet === "function"){
+      checkSet();
+    }
+
+    if(typeof checkFamilySet === "function"){
+      checkFamilySet();
     }
 
   });
 
-});  
+});
 const setCount = document.getElementById("setCount");
 const setGuide = document.getElementById("setGuide");
 const setError = document.getElementById("setError");
