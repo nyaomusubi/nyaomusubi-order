@@ -128,18 +128,21 @@ textarea{
 }    
 .item-grid{
   display:grid;
-  grid-template-columns:1fr;
+  grid-template-columns:repeat(2, 1fr);
   gap:15px;
 }
 
-@media(min-width:768px){
+@media(min-width:1024px){
 
   .item-grid{
-    grid-template-columns:
-      repeat(2, 1fr);
+    grid-template-columns:repeat(4, 1fr);
   }
 
 }
+.name{
+  min-height:48px;
+  font-size:14px;
+}    
 
 .item-grid .item{
   margin-top:0;
