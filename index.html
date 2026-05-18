@@ -200,7 +200,8 @@ textarea{
 }
 
 .set-select-row .counter{
-  flex-shrink:0;
+  width:auto;
+  justify-content:flex-end;
 }
 .set-select-row .counter button{
   width:32px;
@@ -260,8 +261,8 @@ textarea{
     line-height:1.4;
   }
 
-}  
-
+　}  
+    
 .drink-image,
 .dessert-image{
   aspect-ratio:1/1;
@@ -303,6 +304,20 @@ textarea{
 
   .size-row span{
     font-size:12px;
+  }
+
+} 
+@media(max-width:767px){
+
+  .set-select-row{
+    flex-direction:row;
+    align-items:center;
+  }
+
+  .set-select-row span{
+    font-size:14px;
+    line-height:1.4;
+    word-break:keep-all;
   }
 
 }    
