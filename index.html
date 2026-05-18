@@ -341,6 +341,15 @@ input[type="date"]{
     padding:20px 16px;
   }
 
+}
+.holiday-note{
+  margin-top:10px;
+  font-size:13px;
+  line-height:1.6;
+  color:#c06b7d;
+  background:#fff0f3;
+  padding:10px;
+  border-radius:10px;
 }    
   </style>
 </head>
@@ -360,8 +369,14 @@ input[type="date"]{
 </div>
 <div class="card">
   <h3>受け取り日</h3>
+
   <input type="date" id="pickupDate">
-</div>  
+
+  <p class="holiday-note">
+    定休日：日・月・火・祝日<br>
+    ※臨時休業日は選択できません
+  </p>
+</div>
 <div class="item">
 
   <h3>受取時間を選択してください</h3>
