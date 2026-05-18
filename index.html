@@ -2322,11 +2322,21 @@ blocks.forEach(block => {
 
       if(count <= 0) return;
 
-      items.push({
-        name: input.dataset.name,
-        count,
-        price: Number(input.dataset.price)
-      });
+      let itemName = input.dataset.name;
+
+// ホット・アイス選択取得
+const drinkType =
+  block.querySelector(".drink-type");
+
+if(drinkType){
+  itemName += `（${drinkType.value}）`;
+}
+
+items.push({
+  name: itemName,
+  count,
+  price: Number(input.dataset.price)
+});
 
     });
 
