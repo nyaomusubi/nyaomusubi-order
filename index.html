@@ -350,8 +350,23 @@ input[type="date"]{
   background:#fff0f3;
   padding:10px;
   border-radius:10px;
+}
+.holiday-note{
+  margin-top:10px;
+  font-size:13px;
+  line-height:1.6;
+  color:#c06b7d;
+  background:#fff0f3;
+  padding:10px;
+  border-radius:10px;
 }    
   </style>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+>
+
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>  
 </head>
 
 <body>
@@ -368,14 +383,16 @@ input[type="date"]{
 
 </div>
 <div class="card">
+
   <h3>受け取り日</h3>
 
-  <input type="date" id="pickupDate">
+  <input type="text" id="pickupDate">
 
   <p class="holiday-note">
     定休日：日・月・火・祝日<br>
     ※臨時休業日は選択できません
   </p>
+
 </div>
 <div class="item">
 
@@ -2559,6 +2576,47 @@ pickupDateInput.addEventListener("input", () => {
   }
 
 });
+flatpickr("#pickupDate", {
+
+  dateFormat: "Y-m-d",
+
+  minDate: "today",
+
+  disable: [
+
+    // 毎週 日・月・火
+    function(date) {
+
+      return (
+        date.getDay() === 0 ||
+        date.getDay() === 1 ||
+        date.getDay() === 2
+      );
+
+    },
+
+    // 祝日
+    "2026-01-01",
+    "2026-01-12",
+    "2026-02-11",
+    "2026-02-23",
+    "2026-03-20",
+    "2026-04-29",
+    "2026-05-03",
+    "2026-05-04",
+    "2026-05-05",
+    "2026-05-06",
+
+    // 臨時休業
+    "2026-05-25",
+    "2026-05-30"
+
+  ],
+
+  locale: "ja"
+
+});
+<script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ja.js"></script>  
 </script>
 
 </body>
