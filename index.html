@@ -186,26 +186,22 @@ textarea{
   font-size:16px;
 }
 .set-select-row{
-  display:grid;
-  grid-template-columns:1fr auto;
+  display:flex;
+  justify-content:space-between;
   align-items:center;
-  gap:10px;
+  gap:8px;
   margin:12px 0;
 }
 
 .set-select-row span{
-  font-size:14px;
+  font-size:13px;
   line-height:1.4;
-  word-break:keep-all;
+  flex:1;
 }
 
 .set-select-row .counter{
-  display:flex;
-  align-items:center;
-  gap:4px;
   flex-shrink:0;
 }
-
 .set-select-row .counter button{
   width:32px;
   height:32px;
@@ -251,6 +247,8 @@ textarea{
     grid-template-columns:1fr 1fr;
     align-items:start;
   }
+}
+
 @media(max-width:767px){
 
   .set-box{
