@@ -2327,15 +2327,53 @@ familySmall.forEach(input => {
 
 function goConfirm() {
 
-  const time = document.getElementById("pickupTime").value;
+  const pickupDate =
+    document.getElementById("pickupDate").value;
+
+  const time =
+    document.getElementById("pickupTime").value;
+
   const customerName =
-  document.getElementById("customerName").value;
+    document.getElementById("customerName").value.trim();
 
-const customerPhone =
-  document.getElementById("customerPhone").value;
+  const customerPhone =
+    document.getElementById("customerPhone").value.trim();
 
-const note =
-  document.getElementById("note").value;
+  const note =
+    document.getElementById("note").value;
+
+  // 必須チェック
+  if (!pickupDate) {
+    alert("受け取り日を選択してください");
+    return;
+  }
+
+  if (!time) {
+    alert("受取時間を選択してください");
+    return;
+  }
+
+  if (!customerName) {
+    alert("お名前を入力してください");
+    return;
+  }
+
+  if (!customerPhone) {
+    alert("電話番号を入力してください");
+    return;
+  }
+
+  // 電話番号チェック（数字のみ簡易）
+  const phonePattern = /^[0-9\-]+$/;
+
+  if (!phonePattern.test(customerPhone)) {
+    alert("電話番号を正しく入力してください");
+    return;
+  }
+
+  // ↓ここから今の処理
+
+  
 
   const items = [];
 
