@@ -2153,11 +2153,26 @@ input[type="date"]{
 
 async function main() {
 
-  await liff.init({
-    liffId: "2010008395-7xwJ1RIM"
-  });
+  try {
 
-  console.log("LIFF初期化成功");
+    await liff.init({
+      liffId: "2010008395-7xwJ1RIM"
+    });
+
+    // LINEログインしてない場合
+    if (!liff.isLoggedIn()) {
+      liff.login();
+      return;
+    }
+
+    console.log("LIFF初期化成功");
+
+  } catch(error) {
+
+    console.error(error);
+    alert("LIFF初期化エラー");
+
+  }
 
 }
 
