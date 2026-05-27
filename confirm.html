@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>注文確認</title>
+<script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>  
 <style>
 body{
   font-family: sans-serif;
@@ -89,6 +90,13 @@ h1{
 </div>
 
 <script>
+async function initializeLiff() {
+  await liff.init({
+    liffId: "2001008395-7xwJ1RIM"
+  });
+}
+
+initializeLiff();  
 
 const params =
   new URLSearchParams(window.location.search);
