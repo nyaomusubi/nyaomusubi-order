@@ -129,6 +129,36 @@ li{
   }
 
 }
+  .check{
+  color:#f6a623;
+  font-weight:bold;
+  font-size:18px;
+}
+  .check-line{
+  color:#06c755;
+  font-weight:bold;
+  font-size:18px;
+}
+  .cards{
+  display:flex;
+  gap:25px;
+  align-items:stretch;
+}
+
+.cards .card{
+  flex:1;
+}
+ @media(max-width:768px){
+
+  .cards{
+    display:block;
+  }
+
+  .card{
+    margin-bottom:20px;
+  }
+
+} 
 </style>
 
 </head>
@@ -147,6 +177,8 @@ li{
     お支払い方法に合わせて<br>
     ご希望の注文方法をお選びください。
   </div>
+　
+  <div class="cards">
 
   <div class="card mobile-card">
 
@@ -159,11 +191,11 @@ li{
   事前決済でスムーズに受け取り
 </div>
 
-<ul>
-  <li>✓ 事前注文可能</li>
-  <li>✓ 受取日時指定可能</li>
-  <li>✓ 注文と同時にお支払い完了</li>
-  <li>✓ 店頭でのお支払い不要</li>
+  <ul>
+  <li><span class="check">✓</span> 事前注文可能</li>
+  <li><span class="check">✓</span> 受取日時指定可能</li>
+  <li><span class="check">✓</span> 注文と同時にお支払い完了</li>
+  <li><span class="check">✓</span> 店頭でのお支払い不要</li>
 </ul>
 
 <a class="button mobile-btn"
@@ -186,10 +218,10 @@ li{
 </div>
 
 <ul>
-  <li>✓ 事前注文可能</li>
-  <li>✓ 受取日時指定可能</li>
-  <li>✓ 店頭でお支払い</li>
-  <li>✓ 現金・キャッシュレス決済対応</li>
+  <li><span class="check-line">✓</span> 事前注文可能</li>
+  <li><span class="check-line">✓</span> 受取日時指定可能</li>
+  <li><span class="check-line">✓</span> 店頭でお支払い</li>
+  <li><span class="check-line">✓ </span>現金・キャッシュレス決済対応</li>
 </ul>
 
 <a class="button line-btn"
@@ -199,6 +231,7 @@ li{
 ```
 
   </div>
+  </div>  
 
   <div class="footer">
     ご不明な点はお気軽にお問い合わせください。
