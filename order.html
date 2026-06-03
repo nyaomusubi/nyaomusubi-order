@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ご注文方法をお選びください</title>
+<title>ご注文はこちら｜にゃおむすび</title>
 
 <style>
 *{
@@ -15,70 +15,92 @@ body{
   margin:0;
   padding:20px;
   font-family:"Hiragino Sans","Yu Gothic",sans-serif;
-  background:#f8f6f2;
+  background:#fffaf5;
   color:#333;
 }
 
 .container{
-  max-width:600px;
+  max-width:700px;
   margin:auto;
 }
 
 .logo{
   text-align:center;
-  margin:20px 0;
+  margin-top:10px;
 }
 
 .logo img{
-  width:220px;
-  max-width:80%;
+  width:180px;
+  max-width:70%;
 }
 
-.title{
+h1{
   text-align:center;
-  margin-bottom:10px;
-  font-size:28px;
+  margin:10px 0 5px;
+  font-size:30px;
 }
 
-.lead{
+.subtitle{
   text-align:center;
-  color:#666;
+  color:#777;
+  margin-bottom:35px;
   line-height:1.8;
-  margin-bottom:30px;
 }
 
 .card{
-  background:white;
-  border-radius:18px;
+  background:#fff;
+  border-radius:20px;
   padding:25px;
   margin-bottom:25px;
-  box-shadow:0 3px 10px rgba(0,0,0,0.08);
+  box-shadow:0 4px 15px rgba(0,0,0,0.08);
 }
 
-.recommend{
+.mobile-card{
   border:3px solid #f6a623;
-  background:#fffaf2;
+}
+
+.line-card{
+  border:3px solid #06c755;
+}
+
+.icon{
+  font-size:42px;
+  text-align:center;
 }
 
 .card h2{
-  margin-top:0;
+  text-align:center;
+  margin:10px 0 5px;
+}
+
+.catch{
+  text-align:center;
+  font-weight:bold;
+  color:#666;
+  margin-bottom:20px;
 }
 
 ul{
-  padding-left:20px;
-  line-height:2;
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+
+li{
+  padding:8px 0;
+  border-bottom:1px solid #eee;
 }
 
 .button{
   display:block;
   text-align:center;
   text-decoration:none;
+  color:white;
   padding:16px;
   border-radius:12px;
-  color:white;
+  margin-top:25px;
   font-weight:bold;
-  margin-top:20px;
-  font-size:16px;
+  font-size:17px;
 }
 
 .mobile-btn{
@@ -89,11 +111,23 @@ ul{
   background:#06c755;
 }
 
-.note{
+.footer{
   text-align:center;
-  font-size:13px;
   color:#888;
+  font-size:13px;
   margin-top:20px;
+}
+
+@media(max-width:600px){
+
+  h1{
+    font-size:24px;
+  }
+
+  .card{
+    padding:20px;
+  }
+
 }
 </style>
 
@@ -107,66 +141,70 @@ ul{
     <img src="logo300px.png" alt="にゃおむすび">
   </div>
 
-  <h1 class="title">🍙 ご注文はこちら</h1>
+  <h1>ご注文はこちら</h1>
 
-  <p class="lead">
-    にゃおむすびでは、お客様のご都合に合わせて<br>
-    2つの注文方法をご用意しております。
-  </p>
+  <div class="subtitle">
+    お支払い方法に合わせて<br>
+    ご希望の注文方法をお選びください。
+  </div>
 
-  <div class="card recommend">
-    <h2>⭐ おすすめ モバイルオーダー</h2>
+  <div class="card mobile-card">
 
 ```
-<p>
-  注文からお支払いまでスマホで完了できます。
-</p>
+<div class="icon">💳</div>
+
+<h2>モバイルオーダー</h2>
+
+<div class="catch">
+  事前決済でスムーズに受け取り
+</div>
 
 <ul>
-  <li>事前注文可能</li>
-  <li>受取日時指定可能</li>
-  <li>事前決済で受取がスムーズ</li>
-  <li>店頭でのお支払い不要</li>
+  <li>✓ 事前注文可能</li>
+  <li>✓ 受取日時指定可能</li>
+  <li>✓ 注文と同時にお支払い完了</li>
+  <li>✓ 店頭でのお支払い不要</li>
 </ul>
 
 <a class="button mobile-btn"
-   href="https://nyaomusubi.github.io/nyaomusubi-order/">
+   href="ここにエアレジのURL">
    モバイルオーダーで注文する
 </a>
 ```
 
   </div>
 
-  <div class="card">
-    <h2>💬 LINE注文（店頭支払い）</h2>
+  <div class="card line-card">
 
 ```
-<p>
-  LINEから注文し、受取時にお支払いいただく注文方法です。
-</p>
+<div class="icon">💬</div>
+
+<h2>LINE注文</h2>
+
+<div class="catch">
+  受取時にお支払い
+</div>
 
 <ul>
-  <li>事前注文可能</li>
-  <li>受取日時指定可能</li>
-  <li>受取時にお支払い</li>
-  <li>現金・キャッシュレス決済対応</li>
+  <li>✓ 事前注文可能</li>
+  <li>✓ 受取日時指定可能</li>
+  <li>✓ 店頭でお支払い</li>
+  <li>✓ 現金・キャッシュレス決済対応</li>
 </ul>
 
 <a class="button line-btn"
-   href="LINE注文画面のURLを入れる">
+   href="https://nyaomusubi.github.io/nyaomusubi-order/">
    LINEで注文する
 </a>
 ```
 
   </div>
 
-  <div class="note">
-    ご不明な点がございましたらお気軽にお問い合わせください。
+  <div class="footer">
+    ご不明な点はお気軽にお問い合わせください。
   </div>
 
 </div>
 
 </body>
-</html>
-
 </html>
