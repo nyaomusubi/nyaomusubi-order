@@ -39,6 +39,8 @@
       margin-top:10px;
       box-shadow:0 2px 5px rgba(0,0,0,0.05);
       border:1px solid #f0d6da;
+      position: relative;
+      z-index: 2;
     }
 
     .price{
@@ -123,6 +125,8 @@ input[type="date"]{
   border:1px solid #f0d6da;
  border:1px solid #f0d6da;
   overflow:hidden;
+  position: relative;
+  z-index: 1;
 }
 .card input,
 .card select{
@@ -2139,7 +2143,7 @@ input[type="date"]{
         type="button"
         class="plus"
       >＋</button>
-
+   </div>  
   </div>
  </div>
 </div>  
@@ -2177,6 +2181,9 @@ async function main() {
 }
 
 main();
+document.getElementById("pickupTime").addEventListener("click", (e) => {
+  e.stopPropagation();
+});  
 document.querySelectorAll(".plus").forEach(btn => {
 
   btn.addEventListener("click", () => {
