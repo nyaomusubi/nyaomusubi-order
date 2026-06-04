@@ -243,6 +243,18 @@ document.getElementById("customerInfo").innerHTML =
   電話番号：${customerPhone}<br>
   備考：${note || "なし"}
   `;
+  const agreeCheck =
+  document.getElementById("agreeCheck");
+
+const submitBtn =
+  document.getElementById("submitBtn");
+
+agreeCheck.addEventListener("change", () => {
+
+  submitBtn.disabled =
+    !agreeCheck.checked;
+
+});
 </script>
 <button onclick="history.back()" class="backBtn">
   注文画面に戻る
