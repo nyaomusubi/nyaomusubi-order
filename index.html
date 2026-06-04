@@ -387,7 +387,7 @@ input[type="date"]{
 
   <h3>受け取り日</h3>
 
-  <input type="text" id="pickupDate">
+  <input type="text" id="pickupDate" readonly>
 
   <p class="holiday-note">
     定休日：日・月・火・祝日<br>
@@ -2630,20 +2630,19 @@ flatpickr("#pickupDate", {
 
   minDate: "today",
 
+  clickOpens: true,
+  allowInput: false,
+
   disable: [
 
-    // 毎週 日・月・火
     function(date) {
-
       return (
         date.getDay() === 0 ||
         date.getDay() === 1 ||
         date.getDay() === 2
       );
-
     },
 
-    // 祝日
     "2026-01-01",
     "2026-01-12",
     "2026-02-11",
@@ -2655,15 +2654,13 @@ flatpickr("#pickupDate", {
     "2026-05-05",
     "2026-05-06",
 
-    // 臨時休業
     "2026-05-25",
     "2026-05-30"
 
   ],
 
   locale: flatpickr.l10ns.ja
-
-}); 
+});
 </script>
 
 </body>
