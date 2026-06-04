@@ -78,17 +78,14 @@ h1{
 }
 
 .agreeArea{
-  margin-top:15px;
-  font-size:18px;
-  line-height:1.8;
+  margin-top:20px;
+  font-size:22px;
+  font-weight:bold;
 }
 
-.submitBtn:disabled{
-  background:#ccc;
-} 
 .agreeArea input[type="checkbox"]{
-  transform: scale(1.6);
-  margin-right:10px;
+  transform: scale(2.2);
+  margin-right:15px;
 }
 .agreeLabel{
   display:flex;
@@ -261,18 +258,7 @@ document.getElementById("customerInfo").innerHTML =
   電話番号：${customerPhone}<br>
   備考：${note || "なし"}
   `;
-  const agreeCheck =
-  document.getElementById("agreeCheck");
-
-const submitBtn =
-  document.getElementById("submitBtn");
-
-agreeCheck.addEventListener("change", () => {
-
-  submitBtn.disabled =
-    !agreeCheck.checked;
-
-});
+  
 </script>
 <button onclick="history.back()" class="backBtn">
   注文画面に戻る
@@ -309,5 +295,19 @@ agreeCheck.addEventListener("change", () => {
 >
   注文を確定する
 </button>
+<script>
+const agreeCheck =
+  document.getElementById("agreeCheck");
+
+const submitBtn =
+  document.getElementById("submitBtn");
+
+agreeCheck.addEventListener("change", () => {
+
+  submitBtn.disabled =
+    !agreeCheck.checked;
+
+});
+</script>
 </body>
 </html>
