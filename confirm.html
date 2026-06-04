@@ -58,6 +58,27 @@ h1{
   font-size:18px;
   font-weight:bold;
 }  
+ .policyCard{
+  background:white;
+  padding:15px;
+  margin-top:15px;
+  border-radius:12px;
+  box-shadow:0 2px 6px rgba(0,0,0,0.05);
+}
+
+.policyText{
+  font-size:14px;
+  line-height:1.8;
+}
+
+.agreeArea{
+  margin-top:15px;
+  font-size:15px;
+}
+
+.submitBtn:disabled{
+  background:#ccc;
+} 
 </style>  
 </head>
 <body>
@@ -226,11 +247,35 @@ document.getElementById("customerInfo").innerHTML =
 <button onclick="history.back()" class="backBtn">
   注文画面に戻る
 </button>
+<div class="policyCard">
+
+  <h3>キャンセルポリシー</h3>
+
+  <div class="policyText">
+    ・受け渡し日の1日前からのキャンセルにつきましては、
+    合計金額（税抜）の10％を申し受けます。<br><br>
+
+    ・キャンセルされる場合は、
+    お早めにご連絡をお願いいたします。
+  </div>
+
+  <div class="agreeArea">
+    <label>
+      <input
+        type="checkbox"
+        id="agreeCheck"
+      >
+      キャンセルポリシーに同意します
+    </label>
+  </div>
+
+</div>  
 
 <button
   id="submitBtn"
   class="submitBtn"
   onclick="submitOrder()"
+  disabled
 >
   注文を確定する
 </button>
