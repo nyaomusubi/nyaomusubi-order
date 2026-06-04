@@ -53,11 +53,17 @@ h1{
   margin-top:15px;
   border:none;
   border-radius:12px;
-  background:#9fc9b0;
+  background:#7ca68d;
   color:white;
   font-size:18px;
   font-weight:bold;
-}  
+  font-weight:bold;
+}
+
+.submitBtn:disabled{
+  background:#ccc;
+  color:#888;
+}
  .policyCard{
   background:white;
   padding:15px;
@@ -73,12 +79,24 @@ h1{
 
 .agreeArea{
   margin-top:15px;
-  font-size:15px;
+  font-size:18px;
+  line-height:1.8;
 }
 
 .submitBtn:disabled{
   background:#ccc;
 } 
+.agreeArea input[type="checkbox"]{
+  transform: scale(1.6);
+  margin-right:10px;
+}
+.agreeLabel{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  cursor:pointer;
+}  
+  
 </style>  
 </head>
 <body>
@@ -272,13 +290,13 @@ agreeCheck.addEventListener("change", () => {
   </div>
 
   <div class="agreeArea">
-    <label>
-      <input
-        type="checkbox"
-        id="agreeCheck"
-      >
-      キャンセルポリシーに同意します
-    </label>
+   <label class="agreeLabel">
+  <input
+    type="checkbox"
+    id="agreeCheck"
+  >
+  キャンセルポリシーに同意します
+</label>
   </div>
 
 </div>  
