@@ -2556,7 +2556,11 @@ if(familyCount > 0){
   });
 }
   }
-
+// 商品が1つもない場合
+if(items.length === 0){
+  alert("商品を1つ以上選択してください");
+  return;
+}
 const orderData =
   encodeURIComponent(JSON.stringify(items));
 
