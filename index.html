@@ -2555,6 +2555,10 @@ if(familyCount > 0){
     detail: familyItems
   });
 }
+if(items.length === 0){
+  alert("商品を1つ以上選択してください");
+  return;
+}    
   }
 // 商品が1つもない場合
 if(items.length === 0){
