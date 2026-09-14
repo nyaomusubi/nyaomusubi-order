@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 
 <html lang="ja">
@@ -20,7 +21,7 @@ body{
 }
 
 .container{
-  max-width:1000px;
+  max-width:1200px;
   margin:auto;
 }
 
@@ -47,12 +48,20 @@ h1{
   line-height:1.8;
 }
 
+.cards{
+  display:flex;
+  gap:20px;
+  align-items:stretch;
+}
+
 .card{
   background:#fff;
   border-radius:20px;
-  padding:25px;
+  padding:22px;
   margin-bottom:25px;
   box-shadow:0 4px 15px rgba(0,0,0,0.08);
+  flex:1;
+  min-width:0;
 }
 
 .mobile-card{
@@ -61,6 +70,10 @@ h1{
 
 .line-card{
   border:3px solid #06c755;
+}
+
+.research-card{
+  border:3px solid #6aaed6;
 }
 
 .icon{
@@ -72,6 +85,7 @@ h1{
 .card h2{
   text-align:center;
   margin:10px 0 5px;
+  font-size:21px;
 }
 
 .catch{
@@ -79,6 +93,7 @@ h1{
   font-weight:bold;
   color:#666;
   margin-bottom:20px;
+  line-height:1.7;
 }
 
 ul{
@@ -90,6 +105,7 @@ ul{
 li{
   padding:8px 0;
   border-bottom:1px solid #eee;
+  font-size:14px;
 }
 
 .button{
@@ -97,11 +113,11 @@ li{
   text-align:center;
   text-decoration:none;
   color:white;
-  padding:16px;
+  padding:16px 10px;
   border-radius:12px;
   margin-top:25px;
   font-weight:bold;
-  font-size:17px;
+  font-size:16px;
 }
 
 .mobile-btn{
@@ -112,11 +128,55 @@ li{
   background:#06c755;
 }
 
+.research-btn{
+  background:#6aaed6;
+}
+
 .footer{
   text-align:center;
   color:#888;
   font-size:13px;
   margin-top:20px;
+}
+
+.check{
+  color:#f6a623;
+  font-weight:bold;
+  font-size:18px;
+}
+
+.check-line{
+  color:#06c755;
+  font-weight:bold;
+  font-size:18px;
+}
+
+.check-research{
+  color:#6aaed6;
+  font-weight:bold;
+  font-size:18px;
+}
+
+.note{
+  color:#e60000;
+  font-size:13px;
+  font-weight:normal;
+}
+
+@media(max-width:900px){
+
+  .cards{
+    display:block;
+  }
+
+  .card{
+    margin-bottom:20px;
+  }
+
+  h1{
+    font-size:26px;
+  }
+
 }
 
 @media(max-width:600px){
@@ -130,41 +190,6 @@ li{
   }
 
 }
-  .check{
-  color:#f6a623;
-  font-weight:bold;
-  font-size:18px;
-}
-  .check-line{
-  color:#06c755;
-  font-weight:bold;
-  font-size:18px;
-}
-  .cards{
-  display:flex;
-  gap:25px;
-  align-items:stretch;
-}
-
-.cards .card{
-  flex:1;
-}
- @media(max-width:768px){
-
-  .cards{
-    display:block;
-  }
-
-  .card{
-    margin-bottom:20px;
-  }
-
-} 
-.note{
-  color:#e60000;
-  font-size:13px;
-  font-weight:normal;
-}  
 </style>
 
 </head>
@@ -180,63 +205,96 @@ li{
   <h1>🍙 ご注文方法をお選びください</h1>
 
   <div class="subtitle">
-    お支払い方法に合わせて<br>
-　　ご都合のよい注文方法をお選びください。
+    お支払い方法・受け取り場所に合わせて<br>
+    ご都合のよい注文方法をお選びください。
   </div>
-　
+
   <div class="cards">
 
-  <div class="card mobile-card">
+    <!-- モバイルオーダー -->
 
-<div class="icon">💳</div>
+    <div class="card mobile-card">
 
-<h2>モバイルオーダー</h2>
+      <div class="icon">💳</div>
 
-<div class="catch">
-  事前決済でスムーズに店頭受け取り<br>
-   <span class="note">※農研はこちらのフォームではご注文頂けません</span>
-</div>
+      <h2>モバイルオーダー</h2>
 
-  <ul>
-  <li><span class="check">✓</span> 事前注文可能</li>
-  <li><span class="check">✓</span> 受取日時指定可能</li>
-  <li><span class="check">✓</span> 注文と同時にお支払い完了</li>
-  <li><span class="check">✓</span> 店頭でのお支払い不要</li>
-</ul>
+      <div class="catch">
+        事前決済でスムーズに店頭受け取り<br>
+        <span class="note">※農研・森林総研はこちらのフォームではご注文いただけません</span>
+      </div>
 
-<a class="button mobile-btn"
-   href="https://takeout.order.airregi.jp/6410de89/launch">
-   モバイルオーダーで注文する
-</a>
+      <ul>
+        <li><span class="check">✓</span> 事前注文可能</li>
+        <li><span class="check">✓</span> 受取日時指定可能</li>
+        <li><span class="check">✓</span> 注文と同時にお支払い完了</li>
+        <li><span class="check">✓</span> 店頭でのお支払い不要</li>
+      </ul>
 
+      <a class="button mobile-btn"
+         href="https://takeout.order.airregi.jp/6410de89/launch">
+         モバイルオーダーで注文する
+      </a>
+
+    </div>
+
+
+    <!-- LINE注文 -->
+
+    <div class="card line-card">
+
+      <div class="icon">💬</div>
+
+      <h2>LINE注文</h2>
+
+      <div class="catch">
+        受取時にお支払い・店頭受け取り<br>
+        <span class="note">※農研・森林総研はこちらのフォームではご注文いただけません</span>
+      </div>
+
+      <ul>
+        <li><span class="check-line">✓</span> 事前注文可能</li>
+        <li><span class="check-line">✓</span> 受取日時指定可能</li>
+        <li><span class="check-line">✓</span> 店頭でお支払い</li>
+        <li><span class="check-line">✓</span> 現金・キャッシュレス決済対応</li>
+      </ul>
+
+      <a class="button line-btn"
+         href="https://nyaomusubi-order.vercel.app">
+         LINEで注文する
+      </a>
+
+    </div>
+
+
+    <!-- 農研・森林総研 -->
+
+    <div class="card research-card">
+
+      <div class="icon">🏢</div>
+
+      <h2>農研・森林総研</h2>
+
+      <div class="catch">
+        各販売場所でのお受け取り<br>
+        事前注文でスムーズに受け取り
+      </div>
+
+      <ul>
+        <li><span class="check-research">✓</span> 事前注文可能</li>
+        <li><span class="check-research">✓</span> 受取場所・日時を指定</li>
+        <li><span class="check-research">✓</span> 各販売場所で受け取り</li>
+        <li><span class="check-research">✓</span> 農研・森林総研をご利用の方はこちら</li>
+      </ul>
+
+      <a class="button research-btn"
+         href="https://my-site-106587-105202.square.site/">
+         農研・森林総研で注文する
+      </a>
+
+    </div>
 
   </div>
-
-  <div class="card line-card">
-
-<div class="icon">💬</div>
-
-<h2>LINE注文</h2>
-
-<div class="catch">
-  受取時にお支払い・店頭受け取り<br>
-  <span class="note">※農研はこちらのフォームではご注文頂けません</span>
-</div>
-
-<ul>
-  <li><span class="check-line">✓</span> 事前注文可能</li>
-  <li><span class="check-line">✓</span> 受取日時指定可能</li>
-  <li><span class="check-line">✓</span> 店頭でお支払い</li>
-  <li><span class="check-line">✓ </span>現金・キャッシュレス決済対応</li>
-</ul>
-
-<a class="button line-btn"
-   href="https://nyaomusubi-order.vercel.app">
-   LINEで注文する
-</a>
-
-  </div>
-  </div>  
 
   <div class="footer">
     ご不明な点はお気軽にお問い合わせください。
@@ -246,3 +304,4 @@ li{
 
 </body>
 </html>
+```
